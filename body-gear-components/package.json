@@ -1,7 +1,7 @@
 {
   "name": "body-gear-components",
   "version": "1.0.0",
-  "description": "Bibliothèque de composants web pour Body Gear - Salle de sport old school",
+  "description": "Bibliothèque de composants web pour Body Gear",
   "main": "index.html",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,7 @@
     "sass:watch": "sass --watch src/scss:dist/css"
   },
   "keywords": ["body-gear", "fitness", "components", "sass", "vite"],
-  "author": "Votre Nom",
+  "author": "Jéjé et Lulu",
   "license": "MIT",
   "devDependencies": {
     "sass": "^1.70.0",
