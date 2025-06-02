@@ -1,0 +1,724 @@
+// ============================================================================
+// MAIN SCSS - BODY GEAR COMPONENTS
+// Point d'entrée principal de la bibliothèque de composants
+// Musculation Old School Authentique 💪🏋️
+// ============================================================================
+
+// ========================================
+// 1. BASE - Fondations du système
+// ========================================
+
+@import 'base/variables';
+@import 'base/reset';
+
+// ========================================
+// 2. THÈMES - Variations de couleurs et styles
+// ========================================
+
+@import 'themes/dark-theme';
+@import 'themes/admin-theme';
+
+// ========================================
+// 3. COMPOSANTS - Éléments réutilisables
+// ========================================
+
+@import 'components/containers';
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cards';
+@import 'components/navigation';
+@import 'components/alerts';
+@import 'components/tables';
+@import 'components/modals';
+@import 'components/breadcrumbs';
+@import 'components/pagination';
+@import 'components/accordeon';
+@import 'components/admin';
+@import 'components/design-guide';
+
+// ========================================
+// 4. UTILITAIRES GLOBAUX
+// ========================================
+
+// Classes utilitaires pour layout
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.container--fluid {
+  max-width: none;
+}
+
+.container--sm {
+  max-width: 640px;
+}
+
+.container--md {
+  max-width: 768px;
+}
+
+.container--lg {
+  max-width: 1024px;
+}
+
+.container--xl {
+  max-width: 1280px;
+}
+
+// Grid system responsive
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+.grid--1 {
+  grid-template-columns: 1fr;
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+  
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+  
+  @media (max-width: 1023px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+  
+  @media (max-width: 1023px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid--auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid--auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+// Flexbox utilities
+.flex {
+  display: flex;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.flex--row {
+  flex-direction: row;
+}
+
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+.flex--center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex--between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex--around {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex--start {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex--end {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+// Spacing utilities
+.m-0 { margin: 0 !important; }
+.m-auto { margin: auto !important; }
+.mt-auto { margin-top: auto !important; }
+.mb-auto { margin-bottom: auto !important; }
+.ml-auto { margin-left: auto !important; }
+.mr-auto { margin-right: auto !important; }
+
+.p-0 { padding: 0 !important; }
+
+// Text utilities
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+.text-uppercase { text-transform: uppercase !important; }
+.text-lowercase { text-transform: lowercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+.text-primary { color: rgb(var(--color-primary)) !important; }
+.text-secondary { color: rgb(var(--color-secondary)) !important; }
+.text-success { color: rgb(var(--color-success)) !important; }
+.text-warning { color: rgb(var(--color-warning)) !important; }
+.text-error { color: rgb(var(--color-error)) !important; }
+.text-muted { color: rgb(var(--color-text-muted)) !important; }
+
+.font-heading { font-family: var(--font-heading) !important; }
+.font-body { font-family: var(--font-body) !important; }
+
+.font-light { font-weight: var(--font-weight-light) !important; }
+.font-normal { font-weight: var(--font-weight-normal) !important; }
+.font-medium { font-weight: var(--font-weight-medium) !important; }
+.font-semibold { font-weight: var(--font-weight-semibold) !important; }
+.font-bold { font-weight: var(--font-weight-bold) !important; }
+
+// Display utilities
+.block { display: block !important; }
+.inline { display: inline !important; }
+.inline-block { display: inline-block !important; }
+.hidden { display: none !important; }
+
+// Visibility utilities
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+
+// Position utilities
+.relative { position: relative !important; }
+.absolute { position: absolute !important; }
+.fixed { position: fixed !important; }
+.sticky { position: sticky !important; }
+
+// Overflow utilities
+.overflow-hidden { overflow: hidden !important; }
+.overflow-auto { overflow: auto !important; }
+.overflow-scroll { overflow: scroll !important; }
+
+// Border utilities
+.border { border: var(--border-width) solid rgb(var(--color-border)) !important; }
+.border-0 { border: none !important; }
+.border-top { border-top: var(--border-width) solid rgb(var(--color-border)) !important; }
+.border-bottom { border-bottom: var(--border-width) solid rgb(var(--color-border)) !important; }
+.border-left { border-left: var(--border-width) solid rgb(var(--color-border)) !important; }
+.border-right { border-right: var(--border-width) solid rgb(var(--color-border)) !important; }
+
+.rounded { border-radius: var(--border-radius-md) !important; }
+.rounded-sm { border-radius: var(--border-radius-sm) !important; }
+.rounded-lg { border-radius: var(--border-radius-lg) !important; }
+.rounded-xl { border-radius: var(--border-radius-xl) !important; }
+.rounded-full { border-radius: var(--border-radius-full) !important; }
+
+// Shadow utilities
+.shadow-sm { box-shadow: var(--shadow-sm) !important; }
+.shadow-md { box-shadow: var(--shadow-md) !important; }
+.shadow-lg { box-shadow: var(--shadow-lg) !important; }
+.shadow-xl { box-shadow: var(--shadow-xl) !important; }
+.shadow-none { box-shadow: none !important; }
+
+// Background utilities
+.bg-transparent { background-color: transparent !important; }
+.bg-white { background-color: rgb(var(--color-white)) !important; }
+.bg-black { background-color: rgb(var(--color-black)) !important; }
+.bg-primary { background-color: rgb(var(--color-primary)) !important; }
+.bg-secondary { background-color: rgb(var(--color-secondary)) !important; }
+.bg-success { background-color: rgb(var(--color-success)) !important; }
+.bg-warning { background-color: rgb(var(--color-warning)) !important; }
+.bg-error { background-color: rgb(var(--color-error)) !important; }
+.bg-surface { background-color: rgb(var(--color-surface)) !important; }
+
+// ========================================
+// 5. RESPONSIVE UTILITIES
+// ========================================
+
+// Mobile First responsive classes
+@media (min-width: 640px) {
+  .sm\:block { display: block !important; }
+  .sm\:hidden { display: none !important; }
+  .sm\:flex { display: flex !important; }
+  .sm\:grid { display: grid !important; }
+  .sm\:text-left { text-align: left !important; }
+  .sm\:text-center { text-align: center !important; }
+  .sm\:text-right { text-align: right !important; }
+}
+
+@media (min-width: 768px) {
+  .md\:block { display: block !important; }
+  .md\:hidden { display: none !important; }
+  .md\:flex { display: flex !important; }
+  .md\:grid { display: grid !important; }
+  .md\:text-left { text-align: left !important; }
+  .md\:text-center { text-align: center !important; }
+  .md\:text-right { text-align: right !important; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:block { display: block !important; }
+  .lg\:hidden { display: none !important; }
+  .lg\:flex { display: flex !important; }
+  .lg\:grid { display: grid !important; }
+  .lg\:text-left { text-align: left !important; }
+  .lg\:text-center { text-align: center !important; }
+  .lg\:text-right { text-align: right !important; }
+}
+
+@media (min-width: 1280px) {
+  .xl\:block { display: block !important; }
+  .xl\:hidden { display: none !important; }
+  .xl\:flex { display: flex !important; }
+  .xl\:grid { display: grid !important; }
+  .xl\:text-left { text-align: left !important; }
+  .xl\:text-center { text-align: center !important; }
+  .xl\:text-right { text-align: right !important; }
+}
+
+// ========================================
+// 6. ANIMATIONS ET TRANSITIONS
+// ========================================
+
+// Animation de base pour les transitions
+.transition {
+  transition: var(--transition-all);
+}
+
+.transition-colors {
+  transition: var(--transition-colors);
+}
+
+.transition-transform {
+  transition: var(--transition-transform);
+}
+
+.transition-opacity {
+  transition: var(--transition-opacity);
+}
+
+// Animations de chargement
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Classes d'animation
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+// ========================================
+// 7. ÉTATS ET INTERACTIONS
+// ========================================
+
+// États de hover
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.hover\:scale-110:hover {
+  transform: scale(1.1);
+}
+
+.hover\:shadow-lg:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.hover\:shadow-xl:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.hover\:opacity-80:hover {
+  opacity: 0.8;
+}
+
+.hover\:opacity-90:hover {
+  opacity: 0.9;
+}
+
+// États de focus
+.focus\:outline-none:focus {
+  outline: none;
+}
+
+.focus\:ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-primary), 0.3);
+}
+
+.focus\:ring-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-primary), 0.3);
+}
+
+.focus\:ring-success:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-success), 0.3);
+}
+
+.focus\:ring-warning:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-warning), 0.3);
+}
+
+.focus\:ring-error:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-error), 0.3);
+}
+
+// États disabled
+.disabled,
+.disabled:hover,
+.disabled:focus {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+// ========================================
+// 8. BODY GEAR SPECIFIC STYLES
+// ========================================
+
+// Logo et branding
+.logo {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-2xl);
+  color: rgb(var(--color-primary));
+  text-decoration: none;
+  letter-spacing: -0.025em;
+  
+  &:hover {
+    color: rgba(var(--color-primary), 0.8);
+    text-decoration: none;
+  }
+}
+
+// Hero sections
+.hero {
+  padding: var(--spacing-8xl) 0 var(--spacing-6xl);
+  text-align: center;
+  background: linear-gradient(135deg, 
+    rgba(var(--color-primary), 0.1) 0%, 
+    rgba(var(--color-secondary), 0.05) 100%);
+  
+  &__title {
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xl);
+    background: linear-gradient(135deg, 
+      rgb(var(--color-primary)), 
+      rgb(var(--color-secondary)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-4xl);
+    }
+  }
+  
+  &__subtitle {
+    font-size: var(--font-size-xl);
+    color: rgb(var(--color-text-secondary));
+    margin-bottom: var(--spacing-2xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-lg);
+    }
+  }
+  
+  &__actions {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-2xl);
+  }
+  
+  &__stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-4xl);
+    margin-top: var(--spacing-4xl);
+    flex-wrap: wrap;
+    
+    @media (max-width: 767px) {
+      gap: var(--spacing-2xl);
+    }
+  }
+}
+
+// Stats components
+.stat {
+  text-align: center;
+  
+  &__number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: rgb(var(--color-primary));
+    line-height: 1;
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-3xl);
+    }
+  }
+  
+  &__label {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: rgb(var(--color-text-secondary));
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: var(--font-weight-medium);
+    margin-top: var(--spacing-sm);
+  }
+}
+
+// Badge components
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--border-radius-full);
+  white-space: nowrap;
+  
+  &--primary {
+    background-color: rgba(var(--color-primary), 0.1);
+    color: rgb(var(--color-primary));
+  }
+  
+  &--secondary {
+    background-color: rgba(var(--color-secondary), 0.1);
+    color: rgb(var(--color-secondary));
+  }
+  
+  &--success {
+    background-color: rgba(var(--color-success), 0.1);
+    color: rgb(var(--color-success));
+  }
+  
+  &--warning {
+    background-color: rgba(var(--color-warning), 0.1);
+    color: rgb(var(--color-warning));
+  }
+  
+  &--error {
+    background-color: rgba(var(--color-error), 0.1);
+    color: rgb(var(--color-error));
+  }
+  
+  &--outline {
+    background-color: transparent;
+    border: var(--border-width) solid currentColor;
+  }
+}
+
+// Loading states
+.loading {
+  position: relative;
+  pointer-events: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid transparent;
+    border-top: 2px solid rgb(var(--color-primary));
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  > * {
+    opacity: 0.6;
+  }
+}
+
+// Emoji utilities pour Body Gear
+.emoji {
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ========================================
+// 9. PRINT STYLES
+// ========================================
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .hero {
+    background: none !important;
+    color: black !important;
+  }
+  
+  .btn {
+    border: 1px solid black !important;
+    background: white !important;
+    color: black !important;
+  }
+  
+  .card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+}
+
+// ========================================
+// 10. ACCESSIBILITY IMPROVEMENTS
+// ========================================
+
+// Focus improvements for keyboard navigation
+@media (hover: none) {
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+  
+  .hover\:shadow-lg:hover {
+    box-shadow: none;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: 0, 0, 0;
+    --border-width: 2px;
+  }
+  
+  [data-theme="dark"] {
+    --color-border: 255, 255, 255;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-fadeIn,
+  .animate-slideInLeft,
+  .animate-slideInRight {
+    animation: none;
+  }
+  
+  .transition,
+  .transition-colors,
+  .transition-transform,
+  .transition-opacity {
+    transition: none;
+  }
+}

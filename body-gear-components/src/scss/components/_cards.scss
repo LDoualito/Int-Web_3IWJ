@@ -1,0 +1,961 @@
+// ============================================================================
+// CARDS COMPONENTS - BODY GEAR
+// Système de cartes avec méthodologie BEM stricte
+// ============================================================================
+
+// ========================================
+// CARD - Block principal
+// ========================================
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(var(--color-background));
+  border: var(--border-width) solid rgb(var(--color-border));
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transition: var(--transition-all);
+  
+  // ========================================
+  // ELEMENTS BEM
+  // ========================================
+  
+  &__header {
+    padding: var(--card-padding);
+    border-bottom: var(--border-width) solid rgb(var(--color-border));
+    background-color: rgb(var(--color-surface));
+  }
+  
+  &__body {
+    flex: 1;
+    padding: var(--card-padding);
+  }
+  
+  &__footer {
+    padding: var(--card-padding);
+    border-top: var(--border-width) solid rgb(var(--color-border));
+    background-color: rgb(var(--color-surface));
+    margin-top: auto;
+  }
+  
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  &__image-container {
+    position: relative;
+    overflow: hidden;
+    
+    .card__image {
+      transition: transform var(--transition-normal);
+    }
+  }
+  
+  &__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: rgb(var(--color-text-primary));
+    margin: 0 0 var(--spacing-sm) 0;
+    line-height: var(--line-height-tight);
+  }
+  
+  &__subtitle {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: rgb(var(--color-text-secondary));
+    margin: 0 0 var(--spacing-lg) 0;
+  }
+  
+  &__text {
+    color: rgb(var(--color-text-primary));
+    line-height: var(--line-height-normal);
+    margin: 0 0 var(--spacing-lg) 0;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    color: rgb(var(--color-text-muted));
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  &__meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+  
+  &__actions {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  &__badge {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: 1;
+  }
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 50%,
+      rgba(var(--color-overlay), 0.7) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: var(--spacing-xl);
+    color: rgb(var(--color-white));
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+  }
+  
+  &__overlay-content {
+    width: 100%;
+  }
+  
+  // ========================================
+  // MODIFIERS - États et styles
+  // ========================================
+  
+  &--elevated {
+    border: none;
+    box-shadow: var(--shadow-md);
+    
+    &:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+  }
+  
+  &--bordered {
+    border: var(--border-width-thick) solid rgb(var(--color-border));
+  }
+  
+  &--rounded {
+    border-radius: var(--border-radius-xl);
+  }
+  
+  &--square {
+    border-radius: 0;
+  }
+  
+  &--horizontal {
+    flex-direction: row;
+    
+    .card__image-container {
+      flex: 0 0 200px;
+      height: auto;
+      
+      .card__image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    
+    .card__content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card__body {
+      flex: 1;
+    }
+    
+    @media (max-width: 767px) {
+      flex-direction: column;
+      
+      .card__image-container {
+        flex: none;
+        height: 200px;
+      }
+    }
+  }
+  
+  &--compact {
+    .card__header,
+    .card__body,
+    .card__footer {
+      padding: var(--card-padding-sm);
+    }
+    
+    .card__title {
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .card__text {
+      margin-bottom: var(--spacing-md);
+    }
+  }
+  
+  &--spacious {
+    .card__header,
+    .card__body,
+    .card__footer {
+      padding: var(--spacing-2xl);
+    }
+  }
+  
+  &--clickable {
+    cursor: pointer;
+    
+    &:hover {
+      border-color: rgb(var(--color-primary));
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      
+      .card__image {
+        transform: scale(1.05);
+      }
+      
+      .card__overlay {
+        opacity: 1;
+      }
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+    
+    &:focus {
+      outline: 2px solid rgba(var(--color-primary), 0.5);
+      outline-offset: 2px;
+    }
+  }
+  
+  &--loading {
+    pointer-events: none;
+    opacity: 0.7;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 2rem;
+      height: 2rem;
+      border: 2px solid rgb(var(--color-border));
+      border-top: 2px solid rgb(var(--color-primary));
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+  
+  // ========================================
+  // MODIFIERS - Couleurs thématiques
+  // ========================================
+  
+  &--primary {
+    border-color: rgb(var(--color-primary));
+    
+    .card__header,
+    .card__footer {
+      background-color: rgba(var(--color-primary), 0.05);
+      border-color: rgba(var(--color-primary), 0.2);
+    }
+    
+    .card__title {
+      color: rgb(var(--color-primary));
+    }
+  }
+  
+  &--success {
+    border-color: rgb(var(--color-success));
+    
+    .card__header,
+    .card__footer {
+      background-color: rgba(var(--color-success), 0.05);
+      border-color: rgba(var(--color-success), 0.2);
+    }
+    
+    .card__title {
+      color: rgb(var(--color-success));
+    }
+  }
+  
+  &--warning {
+    border-color: rgb(var(--color-warning));
+    
+    .card__header,
+    .card__footer {
+      background-color: rgba(var(--color-warning), 0.05);
+      border-color: rgba(var(--color-warning), 0.2);
+    }
+    
+    .card__title {
+      color: rgb(var(--color-warning));
+    }
+  }
+  
+  &--error {
+    border-color: rgb(var(--color-error));
+    
+    .card__header,
+    .card__footer {
+      background-color: rgba(var(--color-error), 0.05);
+      border-color: rgba(var(--color-error), 0.2);
+    }
+    
+    .card__title {
+      color: rgb(var(--color-error));
+    }
+  }
+  
+  &--dark {
+    background-color: rgb(var(--color-secondary));
+    border-color: rgb(var(--color-secondary));
+    color: rgb(var(--color-white));
+    
+    .card__header,
+    .card__footer {
+      background-color: rgba(var(--color-white), 0.05);
+      border-color: rgba(var(--color-white), 0.1);
+    }
+    
+    .card__title {
+      color: rgb(var(--color-white));
+    }
+    
+    .card__subtitle {
+      color: rgba(var(--color-white), 0.8);
+    }
+    
+    .card__text {
+      color: rgba(var(--color-white), 0.9);
+    }
+    
+    .card__meta {
+      color: rgba(var(--color-white), 0.7);
+    }
+  }
+}
+
+// ========================================
+// CARD PROGRAM - Carte spécialisée fitness
+// ========================================
+
+.card--program {
+  position: relative;
+  
+  // Elements spécifiques aux programmes
+  .card__difficulty {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .card__difficulty-level {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .card__difficulty-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: rgb(var(--color-border));
+    
+    &--active {
+      background-color: rgb(var(--color-primary));
+    }
+  }
+  
+  .card__stats {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-lg);
+    background-color: rgba(var(--color-primary), 0.05);
+    border-radius: var(--border-radius-md);
+  }
+  
+  .card__stat {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .card__stat-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: rgb(var(--color-primary));
+    line-height: 1;
+  }
+  
+  .card__stat-label {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: rgb(var(--color-text-muted));
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: var(--spacing-xs);
+  }
+  
+  .card__equipment {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-lg);
+  }
+  
+  .card__equipment-tag {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: rgba(var(--color-secondary), 0.1);
+    color: rgb(var(--color-secondary));
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+// ========================================
+// CARD PRICING - Carte de tarification
+// ========================================
+
+.card--pricing {
+  text-align: center;
+  position: relative;
+  
+  // Elements spécifiques aux tarifs
+  .card__price {
+    margin: var(--spacing-xl) 0;
+  }
+  
+  .card__price-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-bold);
+    color: rgb(var(--color-primary));
+    line-height: 1;
+  }
+  
+  .card__price-currency {
+    font-size: var(--font-size-xl);
+    vertical-align: top;
+  }
+  
+  .card__price-period {
+    display: block;
+    font-size: var(--font-size-base);
+    color: rgb(var(--color-text-muted));
+    margin-top: var(--spacing-sm);
+  }
+  
+  .card__features {
+    list-style: none;
+    margin: var(--spacing-xl) 0;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .card__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(var(--color-border), 0.5);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &::before {
+      content: '✓';
+      color: rgb(var(--color-success));
+      font-weight: var(--font-weight-bold);
+      flex-shrink: 0;
+    }
+  }
+  
+  .card__feature--disabled {
+    color: rgb(var(--color-text-muted));
+    
+    &::before {
+      content: '✗';
+      color: rgb(var(--color-error));
+    }
+  }
+  
+  &.card--featured {
+    transform: scale(1.05);
+    border-color: rgb(var(--color-primary));
+    box-shadow: var(--shadow-xl);
+    z-index: 1;
+    
+    &::before {
+      content: 'POPULAIRE';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgb(var(--color-primary));
+      color: rgb(var(--color-white));
+      padding: var(--spacing-xs) var(--spacing-lg);
+      border-radius: var(--border-radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .card__price-value {
+      color: rgb(var(--color-primary));
+    }
+  }
+}
+
+// ========================================
+// CARD MEMBER - Carte de membre
+// ========================================
+
+.card--member {
+  .card__avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: var(--border-radius-full);
+    object-fit: cover;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .card__name {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .card__role {
+    color: rgb(var(--color-text-muted));
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .card__status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+  }
+  
+  .card__status-indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    
+    &--active {
+      background-color: rgb(var(--color-success));
+    }
+    
+    &--inactive {
+      background-color: rgb(var(--color-error));
+    }
+    
+    &--pending {
+      background-color: rgb(var(--color-warning));
+    }
+  }
+  
+  .card__contact {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+  }
+  
+  .card__contact-btn {
+    flex: 1;
+  }
+}
+
+// ========================================
+// CARD GROUPS - Groupement de cartes
+// ========================================
+
+.card-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  
+  .card {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  // Modifiers
+  &--2-columns {
+    .card {
+      flex: 1 1 calc(50% - var(--spacing-lg));
+    }
+    
+    @media (max-width: 767px) {
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+  }
+  
+  &--3-columns {
+    .card {
+      flex: 1 1 calc(33.333% - var(--spacing-lg));
+    }
+    
+    @media (max-width: 1023px) {
+      .card {
+        flex: 1 1 calc(50% - var(--spacing-lg));
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+  }
+  
+  &--4-columns {
+    .card {
+      flex: 1 1 calc(25% - var(--spacing-lg));
+    }
+    
+    @media (max-width: 1023px) {
+      .card {
+        flex: 1 1 calc(50% - var(--spacing-lg));
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+  }
+  
+  &--masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: masonry;
+    gap: var(--spacing-lg);
+    
+    @supports not (grid-auto-rows: masonry) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// ========================================
+// RESPONSIVE CARDS
+// ========================================
+
+@media (max-width: 767px) {
+  .card {
+    &--horizontal {
+      .card__image-container {
+        height: 150px;
+      }
+    }
+    
+    &--compact {
+      .card__header,
+      .card__body,
+      .card__footer {
+        padding: var(--spacing-md);
+      }
+    }
+    
+    &--program {
+      .card__stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+      }
+      
+      .card__stat {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+    
+    &--pricing {
+      .card__price-value {
+        font-size: var(--font-size-4xl);
+      }
+      
+      &.card--featured {
+        transform: none;
+        margin-top: var(--spacing-xl);
+      }
+    }
+    
+    &--member {
+      .card__contact {
+        flex-direction: column;
+      }
+    }
+  }
+  
+  .card-group {
+    gap: var(--spacing-md);
+    
+    .card {
+      min-width: auto;
+    }
+    
+    &--2-columns,
+    &--3-columns,
+    &--4-columns {
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}
+
+// ========================================
+// ANIMATIONS CARDS
+// ========================================
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.card--animate-in {
+  animation: cardSlideIn 0.6s ease-out;
+}
+
+.card--pulse {
+  animation: cardPulse 2s infinite;
+}
+
+// Stagger animation pour les groupes de cartes
+.card-group--stagger {
+  .card {
+    opacity: 0;
+    animation: cardSlideIn 0.6s ease-out forwards;
+    
+    &:nth-child(1) { animation-delay: 0.1s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+    &:nth-child(4) { animation-delay: 0.4s; }
+    &:nth-child(5) { animation-delay: 0.5s; }
+    &:nth-child(6) { animation-delay: 0.6s; }
+  }
+}
+
+// ========================================
+// UTILITIES CARDS
+// ========================================
+
+// Classe pour masquer/afficher des cartes
+.card--hidden {
+  display: none;
+}
+
+.card--visible {
+  display: flex;
+}
+
+// Classe pour cartes en mode skeleton loading
+.card--skeleton {
+  .card__title,
+  .card__text,
+  .card__meta {
+    background: linear-gradient(
+      90deg,
+      rgb(var(--color-border)) 25%,
+      rgba(var(--color-border), 0.5) 50%,
+      rgb(var(--color-border)) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: var(--border-radius-sm);
+    color: transparent;
+  }
+  
+  .card__title {
+    height: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .card__text {
+    height: 1rem;
+    margin-bottom: var(--spacing-xs);
+    
+    &:nth-of-type(2) {
+      width: 80%;
+    }
+    
+    &:nth-of-type(3) {
+      width: 60%;
+    }
+  }
+  
+  .card__image {
+    background: linear-gradient(
+      90deg,
+      rgb(var(--color-border)) 25%,
+      rgba(var(--color-border), 0.5) 50%,
+      rgb(var(--color-border)) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// Classe pour cartes avec effet de parallax
+.card--parallax {
+  .card__image-container {
+    overflow: hidden;
+  }
+  
+  .card__image {
+    transition: transform 0.6s ease-out;
+    will-change: transform;
+  }
+}
+
+// Effet hover pour les cartes avec image
+.card--hover-zoom {
+  overflow: hidden;
+  
+  &:hover .card__image {
+    transform: scale(1.1);
+  }
+}
+
+.card--hover-lift {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+.card--hover-rotate {
+  transition: transform var(--transition-normal);
+  
+  &:hover {
+    transform: rotate(2deg) scale(1.02);
+  }
+}
+
+// Cartes avec bordure colorée
+.card--border-left {
+  border-left: 4px solid rgb(var(--color-primary));
+}
+
+.card--border-left-success {
+  border-left: 4px solid rgb(var(--color-success));
+}
+
+.card--border-left-warning {
+  border-left: 4px solid rgb(var(--color-warning));
+}
+
+.card--border-left-error {
+  border-left: 4px solid rgb(var(--color-error));
+}
+
+// Cartes avec gradient background
+.card--gradient {
+  background: linear-gradient(135deg, 
+    rgba(var(--color-primary), 0.1) 0%, 
+    rgba(var(--color-secondary), 0.05) 100%);
+  border: none;
+}
+
+.card--gradient-primary {
+  background: linear-gradient(135deg, 
+    rgb(var(--color-primary)), 
+    rgba(var(--color-primary), 0.8));
+  color: rgb(var(--color-white));
+  border: none;
+  
+  .card__title,
+  .card__text {
+    color: rgb(var(--color-white));
+  }
+  
+  .card__subtitle {
+    color: rgba(var(--color-white), 0.9);
+  }
+}
+
+// Cartes avec effet glass morphism
+.card--glass {
+  background: rgba(var(--color-background), 0.8);
+  backdrop-filter: blur(10px);
+  border: var(--border-width) solid rgba(var(--color-border), 0.2);
+  box-shadow: 
+    0 8px 32px rgba(var(--color-overlay), 0.1),
+    inset 0 1px 0 rgba(var(--color-white), 0.2);
+}
+
+// Cartes avec effet neon (mode sombre)
+[data-theme="dark"] .card--neon {
+  border: 2px solid rgb(var(--color-primary));
+  box-shadow: 
+    0 0 10px rgba(var(--color-primary), 0.3),
+    inset 0 0 10px rgba(var(--color-primary), 0.1);
+  
+  &:hover {
+    box-shadow: 
+      0 0 20px rgba(var(--color-primary), 0.5),
+      inset 0 0 20px rgba(var(--color-primary), 0.2);
+  }
+}

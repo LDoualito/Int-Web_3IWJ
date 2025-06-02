@@ -1,0 +1,784 @@
+// ============================================================================
+// ADMIN COMPONENTS - BODY GEAR
+// Interface d'administration avec méthodologie BEM stricte
+// ============================================================================
+
+// ========================================
+// ADMIN SIDEBAR - Navigation latérale
+// ========================================
+
+.admin-sidebar {
+  width: var(--sidebar-width);
+  background-color: rgb(var(--color-secondary));
+  color: rgb(var(--color-white));
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  z-index: var(--z-index-sticky);
+  transition: transform var(--transition-normal);
+  
+  // Elements
+  &__header {
+    padding: var(--spacing-xl);
+    border-bottom: 1px solid rgba(var(--color-white), 0.1);
+  }
+  
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    color: rgb(var(--color-white));
+    text-decoration: none;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    
+    &:hover {
+      color: rgb(var(--color-primary));
+      text-decoration: none;
+    }
+  }
+  
+  &__logo-text {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+  }
+  
+  // Modifiers
+  &--collapsed {
+    width: var(--sidebar-width-collapsed);
+    
+    .admin-sidebar__logo-text {
+      display: none;
+    }
+    
+    .sidebar-nav__title {
+      display: none;
+    }
+    
+    .sidebar-nav__link {
+      justify-content: center;
+      
+      .sidebar-nav__badge {
+        display: none;
+      }
+    }
+  }
+  
+  // Responsive
+  @media (max-width: 1023px) {
+    transform: translateX(-100%);
+    
+    &--open {
+      transform: translateX(0);
+    }
+  }
+}
+
+// ========================================
+// ADMIN WRAPPER - Layout principal
+// ========================================
+
+.wrapper__main {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  background-color: rgb(var(--color-surface));
+  transition: margin-left var(--transition-normal);
+  
+  @media (max-width: 1023px) {
+    margin-left: 0;
+  }
+}
+
+// ========================================
+// ADMIN HEADER - En-tête de page
+// ========================================
+
+.admin-header {
+  background-color: rgb(var(--color-background));
+  border-bottom: var(--border-width) solid rgb(var(--color-border));
+  padding: var(--spacing-xl);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-sticky);
+  
+  // Elements
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    @media (max-width: 767px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+    }
+  }
+  
+  &__left {
+    flex: 1;
+  }
+  
+  &__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: rgb(var(--color-primary));
+    margin: 0;
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-xl);
+    }
+  }
+  
+  &__subtitle {
+    color: rgb(var(--color-text-muted));
+    margin: 0;
+    font-size: var(--font-size-sm);
+  }
+  
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+  
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// ========================================
+// ADMIN USER - Informations utilisateur
+// ========================================
+
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  
+  // Elements
+  &__avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgb(var(--color-primary));
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    color: rgb(var(--color-white));
+    flex-shrink: 0;
+  }
+  
+  &__info {
+    display: flex;
+    flex-direction: column;
+    
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  
+  &__name {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+    color: rgb(var(--color-text-primary));
+  }
+  
+  &__role {
+    font-size: var(--font-size-xs);
+    color: rgb(var(--color-text-muted));
+  }
+}
+
+// ========================================
+// ADMIN CONTENT - Contenu principal
+// ========================================
+
+.admin-content {
+  padding: var(--spacing-xl);
+  
+  @media (max-width: 767px) {
+    padding: var(--spacing-lg);
+  }
+}
+
+// ========================================
+// ADMIN SECTION - Sections de contenu
+// ========================================
+
+.admin-section {
+  margin-bottom: var(--spacing-4xl);
+  
+  // Elements
+  &__header {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  &__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    color: rgb(var(--color-text-primary));
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-xl);
+    }
+  }
+  
+  &__subtitle {
+    color: rgb(var(--color-text-muted));
+    margin: 0;
+    font-size: var(--font-size-base);
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-sm);
+    }
+  }
+}
+
+// ========================================
+// ADMIN CARD - Cartes spécialisées
+// ========================================
+
+.admin-card {
+  // Modifier le style de base des cartes pour l'admin
+  
+  // Modifiers
+  &--stat {
+    .card__body {
+      padding: var(--spacing-xl);
+    }
+  }
+  
+  &--compact {
+    .card__body {
+      padding: var(--spacing-lg);
+    }
+  }
+}
+
+// ========================================
+// ADMIN STAT - Statistiques du dashboard
+// ========================================
+
+.admin-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  
+  // Elements
+  &__icon {
+    font-size: var(--font-size-3xl);
+    flex-shrink: 0;
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-2xl);
+    }
+  }
+  
+  &__content {
+    flex: 1;
+  }
+  
+  &__value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: rgb(var(--color-text-primary));
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-xl);
+    }
+  }
+  
+  &__label {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: rgb(var(--color-text-muted));
+    margin-top: var(--spacing-xs);
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-xs);
+    }
+  }
+  
+  &__trend {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-xs);
+    }
+  }
+  
+  // Modifiers pour les tendances
+  &__trend--up {
+    color: rgb(var(--color-success));
+  }
+  
+  &__trend--down {
+    color: rgb(var(--color-error));
+  }
+  
+  &__trend--stable {
+    color: rgb(var(--color-text-muted));
+  }
+}
+
+// ========================================
+// TABLE CONTROLS - Contrôles de table
+// ========================================
+
+.table-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xl);
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  
+  // Elements
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    
+    @media (max-width: 767px) {
+      flex-wrap: wrap;
+    }
+  }
+  
+  // Responsive
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    align-items: stretch;
+    
+    .table-controls__left,
+    .table-controls__right {
+      justify-content: space-between;
+    }
+  }
+}
+
+// ========================================
+// MEMBER INFO - Informations membre
+// ========================================
+
+.member-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  
+  // Elements
+  &__avatar {
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(var(--color-surface));
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    flex-shrink: 0;
+  }
+  
+  &__details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; // Pour le text overflow
+  }
+  
+  &__name {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+    color: rgb(var(--color-text-primary));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  &__id {
+    font-size: var(--font-size-xs);
+    color: rgb(var(--color-text-muted));
+  }
+}
+
+// ========================================
+// STATUS BADGE - Badge de statut
+// ========================================
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  
+  // Elements
+  &__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: var(--border-radius-full);
+    flex-shrink: 0;
+  }
+  
+  // Modifiers
+  &--active .status-badge__dot {
+    background-color: rgb(var(--color-success));
+  }
+  
+  &--suspended .status-badge__dot {
+    background-color: rgb(var(--color-warning));
+  }
+  
+  &--expired .status-badge__dot {
+    background-color: rgb(var(--color-error));
+  }
+  
+  &--pending .status-badge__dot {
+    background-color: rgb(var(--color-info));
+  }
+}
+
+// ========================================
+// TABLE ACTIONS - Actions de table
+// ========================================
+
+.table-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+// ========================================
+// TABLE FOOTER - Pied de table
+// ========================================
+
+.table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  background-color: rgb(var(--color-surface));
+  border-top: var(--border-width) solid rgb(var(--color-border));
+  
+  // Elements
+  &__info {
+    font-size: var(--font-size-sm);
+    color: rgb(var(--color-text-muted));
+  }
+  
+  // Responsive
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+}
+
+// ========================================
+// ACTIVITY LIST - Liste d'activités
+// ========================================
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  
+  // Elements
+  &__avatar {
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(var(--color-surface));
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    flex-shrink: 0;
+  }
+  
+  &__content {
+    flex: 1;
+    
+    p {
+      margin: 0;
+      font-size: var(--font-size-sm);
+      color: rgb(var(--color-text-primary));
+    }
+  }
+  
+  &__time {
+    font-size: var(--font-size-xs);
+    color: rgb(var(--color-text-muted));
+    display: block;
+    margin-top: var(--spacing-xs);
+  }
+  
+  &__action {
+    flex-shrink: 0;
+  }
+}
+
+// ========================================
+// POPULARITY LIST - Liste de popularité
+// ========================================
+
+.popularity-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.popularity-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  
+  // Elements
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &__name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: rgb(var(--color-text-primary));
+  }
+  
+  &__count {
+    font-size: var(--font-size-xs);
+    color: rgb(var(--color-text-muted));
+  }
+  
+  &__bar {
+    width: 100%;
+  }
+}
+
+// ========================================
+// POPULARITY BAR - Barre de progression
+// ========================================
+
+.popularity-bar {
+  height: 0.5rem;
+  background-color: rgb(var(--color-border));
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+  
+  // Elements
+  &__fill {
+    height: 100%;
+    background-color: rgb(var(--color-primary));
+    transition: width var(--transition-normal);
+    border-radius: var(--border-radius-full);
+  }
+  
+  // Modifiers pour différentes couleurs
+  &--success .popularity-bar__fill {
+    background-color: rgb(var(--color-success));
+  }
+  
+  &--warning .popularity-bar__fill {
+    background-color: rgb(var(--color-warning));
+  }
+  
+  &--error .popularity-bar__fill {
+    background-color: rgb(var(--color-error));
+  }
+}
+
+// ========================================
+// TABLE CONTAINER - Conteneur de table
+// ========================================
+
+.table-container {
+  overflow-x: auto;
+  border-radius: var(--border-radius-lg);
+  
+  // Scrollbar styling
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: rgb(var(--color-surface));
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--color-border));
+    border-radius: var(--border-radius-sm);
+    
+    &:hover {
+      background-color: rgb(var(--color-border-hover));
+    }
+  }
+}
+
+// ========================================
+// ADMIN TABLE - Table spécialisée
+// ========================================
+
+.admin-table {
+  margin-bottom: 0;
+  
+  th {
+    background-color: rgb(var(--color-surface));
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgb(var(--color-text-secondary));
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  td {
+    font-size: var(--font-size-sm);
+    vertical-align: middle;
+  }
+  
+  tbody tr {
+    transition: background-color var(--transition-fast);
+    
+    &:hover {
+      background-color: rgba(var(--color-primary), 0.03);
+    }
+  }
+  
+  // Responsive
+  @media (max-width: 767px) {
+    th, td {
+      padding: var(--spacing-sm);
+      font-size: var(--font-size-xs);
+    }
+  }
+}
+
+// ========================================
+// RESPONSIVE ADMIN LAYOUT
+// ========================================
+
+@media (max-width: 1023px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    
+    &--open {
+      transform: translateX(0);
+    }
+  }
+  
+  .wrapper__main {
+    margin-left: 0;
+  }
+  
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .grid--4,
+  .grid--3,
+  .grid--2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-stat {
+    gap: var(--spacing-md);
+  }
+  
+  .member-info {
+    gap: var(--spacing-sm);
+  }
+  
+  .activity-item {
+    gap: var(--spacing-sm);
+  }
+}
+
+// ========================================
+// ADMIN DARK MODE
+// ========================================
+
+[data-theme="dark"] {
+  .admin-sidebar {
+    background-color: rgba(var(--color-secondary), 0.95);
+    backdrop-filter: blur(10px);
+  }
+  
+  .admin-header {
+    background-color: rgba(var(--color-background), 0.95);
+    backdrop-filter: blur(10px);
+  }
+  
+  .table-container {
+    border: var(--border-width) solid rgba(var(--color-border), 0.5);
+  }
+  
+  .admin-table th {
+    background-color: rgba(var(--color-surface), 0.8);
+  }
+}
+
+// ========================================
+// ADMIN UTILITIES
+// ========================================
+
+// Classes utilitaires pour l'admin
+.admin-hide-mobile {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.admin-show-mobile {
+  display: none;
+  
+  @media (max-width: 767px) {
+    display: block !important;
+  }
+}
+
+.admin-text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+// Animation pour les statistiques
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-stat__value {
+  animation: countUp 0.6s ease-out;
+}

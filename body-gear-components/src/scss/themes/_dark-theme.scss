@@ -1,0 +1,232 @@
+// ============================================================================
+// DARK THEME - BODY GEAR COMPONENTS
+// Thème sombre authentique pour l'entraînement nocturne 🌙
+// ============================================================================
+
+// ========================================
+// DÉTECTION AUTOMATIQUE DU THÈME SOMBRE
+// ========================================
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-background: 17, 24, 39;       // Gris très sombre #111827
+    --color-surface: 31, 41, 55;          // Gris sombre #1F2937
+    --color-text-primary: 249, 250, 251;  // Blanc cassé #F9FAFB
+    --color-text-secondary: 209, 213, 219; // Gris clair #D1D5DB
+    --color-text-muted: 156, 163, 175;    // Gris moyen #9CA3AF
+    --color-border: 75, 85, 99;           // Gris foncé #4B5563
+    --color-border-hover: 107, 114, 128;  // Gris moins foncé #6B7280
+  }
+}
+
+// ========================================
+// THÈME SOMBRE FORCÉ VIA ATTRIBUT
+// ========================================
+
+[data-theme="dark"] {
+  // Backgrounds - Profondeur et contraste
+  --color-background: 17, 24, 39;       // #111827 - Fond principal très sombre
+  --color-surface: 31, 41, 55;          // #1F2937 - Surface élevée
+  --color-surface-elevated: 55, 65, 81; // #374151 - Surface encore plus élevée
+  
+  // Textes - Lisibilité optimale sur fond sombre
+  --color-text-primary: 249, 250, 251;  // #F9FAFB - Blanc principal
+  --color-text-secondary: 209, 213, 219; // #D1D5DB - Gris clair secondaire
+  --color-text-muted: 156, 163, 175;    // #9CA3AF - Gris moyen pour texte discret
+  --color-text-inverse: 17, 24, 39;     // #111827 - Texte sur fond clair
+  
+  // Bordures - Séparateurs subtils mais visibles
+  --color-border: 75, 85, 99;           // #4B5563 - Bordure standard
+  --color-border-hover: 107, 114, 128;  // #6B7280 - Bordure au survol
+  --color-border-focus: 156, 163, 175;  // #9CA3AF - Bordure focus
+  
+  // États spéciaux en mode sombre
+  --color-overlay: 0, 0, 0;             // Noir pour overlays
+  --color-backdrop: 17, 24, 39;         // Backdrop pour modales
+  
+  // ========================================
+  // COULEURS SPÉCIFIQUES DARK MODE
+  // ========================================
+  
+  // Ajustements des couleurs principales pour meilleur contraste
+  --color-primary-dark: 248, 113, 113;  // Rouge plus doux #F87171
+  --color-success-dark: 52, 211, 153;   // Vert plus vif #34D399
+  --color-warning-dark: 251, 191, 36;   // Orange plus doux #FBBF24
+  --color-error-dark: 248, 113, 113;    // Rouge erreur doux #F87171
+  --color-info-dark: 96, 165, 250;      // Bleu plus doux #60A5FA
+  
+  // ========================================
+  // OMBRES ADAPTÉES AU MODE SOMBRE
+  // ========================================
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  
+  // Ombres colorées pour mode sombre
+  --shadow-primary: 0 4px 14px 0 rgba(248, 113, 113, 0.4);
+  --shadow-success: 0 4px 14px 0 rgba(52, 211, 153, 0.4);
+  --shadow-warning: 0 4px 14px 0 rgba(251, 191, 36, 0.4);
+  --shadow-error: 0 4px 14px 0 rgba(248, 113, 113, 0.4);
+}
+
+// ========================================
+// AMÉLIORATIONS SPÉCIFIQUES DARK MODE
+// ========================================
+
+[data-theme="dark"] {
+  
+  // Images - Réduction légère de l'opacité pour réduire l'éblouissement
+  img:not(.no-dark-filter) {
+    opacity: 0.9;
+    transition: opacity var(--transition-fast);
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+  
+  // Code blocks - Meilleur contraste
+  code {
+    background-color: rgba(var(--color-surface-elevated), 0.5);
+    color: rgb(var(--color-text-primary));
+  }
+  
+  pre {
+    background-color: rgb(var(--color-surface));
+    border: var(--border-width) solid rgb(var(--color-border));
+  }
+  
+  // Blockquotes - Style adapté
+  blockquote {
+    background-color: rgba(var(--color-primary), 0.1);
+    border-left-color: rgb(var(--color-primary));
+    color: rgb(var(--color-text-secondary));
+  }
+  
+  // Tables - Alternance de couleurs pour mode sombre
+  table {
+    tbody tr:nth-child(even) {
+      background-color: rgba(var(--color-surface), 0.5);
+    }
+    
+    tbody tr:hover {
+      background-color: rgba(var(--color-primary), 0.1);
+    }
+  }
+  
+  // Scrollbars personnalisées (Webkit)
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: rgb(var(--color-surface));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--color-border));
+    border-radius: var(--border-radius-sm);
+    
+    &:hover {
+      background-color: rgb(var(--color-border-hover));
+    }
+  }
+  
+  // Sélection de texte
+  ::selection {
+    background-color: rgba(var(--color-primary), 0.3);
+    color: rgb(var(--color-text-primary));
+  }
+  
+  ::-moz-selection {
+    background-color: rgba(var(--color-primary), 0.3);
+    color: rgb(var(--color-text-primary));
+  }
+}
+
+// ========================================
+// CLASSES UTILITAIRES DARK MODE
+// ========================================
+
+[data-theme="dark"] {
+  
+  // Classe pour forcer le texte clair
+  .text-light-force {
+    color: rgb(var(--color-text-primary)) !important;
+  }
+  
+  // Classe pour les éléments qui doivent rester clairs
+  .bg-light-force {
+    background-color: rgb(var(--color-background)) !important;
+    color: rgb(var(--color-text-primary)) !important;
+  }
+  
+  // Classe pour les bordures sombres
+  .border-dark {
+    border-color: rgb(var(--color-border)) !important;
+  }
+  
+  // Classe pour désactiver le filtre d'image sombre
+  .no-dark-filter {
+    opacity: 1 !important;
+  }
+}
+
+// ========================================
+// ANIMATIONS SPÉCIFIQUES DARK MODE
+// ========================================
+
+[data-theme="dark"] {
+  
+  // Glow effect pour les éléments importants
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(var(--color-primary), 0.3);
+  }
+  
+  .glow-success {
+    box-shadow: 0 0 20px rgba(var(--color-success), 0.3);
+  }
+  
+  // Pulse effect pour les notifications
+  @keyframes pulse-dark {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .pulse-dark {
+    animation: pulse-dark 2s infinite;
+  }
+}
+
+// ========================================
+// MEDIA QUERIES DARK MODE
+// ========================================
+
+// Dark mode avec préférence système ET sur grand écran
+@media (prefers-color-scheme: dark) and (min-width: 1024px) {
+  [data-theme="dark"] {
+    // Optimisations spécifiques desktop dark mode
+    --shadow-lg: 0 12px 20px -3px rgba(0, 0, 0, 0.5), 0 6px 8px -2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// ========================================
+// COMPATIBILITY FIXES
+// ========================================
+
+// Support pour les navigateurs qui ne supportent pas CSS custom properties
+@supports not (color: rgb(var(--color-primary))) {
+  [data-theme="dark"] {
+    background-color: #111827;
+    color: #F9FAFB;
+  }
+}

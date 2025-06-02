@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="admin">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Body Gear | Gestion des Membres</title>
+    <meta name="description" content="Interface d'administration Body Gear pour la gestion des membres, abonnements et statistiques.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/scss/main.scss">
+    
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <!-- Admin Layout -->
+    <div class="wrapper wrapper--with-sidebar">
+        <!-- Sidebar -->
+        <aside class="wrapper__sidebar admin-sidebar">
+            <div class="admin-sidebar__header">
+                <a href="landing-page.html" class="logo admin-sidebar__logo">
+                    <strong>BG</strong>
+                    <span class="admin-sidebar__logo-text">Admin</span>
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav" aria-label="Navigation d'administration">
+                <div class="sidebar-nav__section">
+                    <h3 class="sidebar-nav__title">Dashboard</h3>
+                    <ul class="sidebar-nav__list">
+                        <li class="sidebar-nav__item">
+                            <a href="#dashboard" class="sidebar-nav__link sidebar-nav__link--active">
+                                <span class="sidebar-nav__icon">📊</span>
+                                Vue d'ensemble
+                                <span class="sidebar-nav__badge">New</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="#stats" class="sidebar-nav__link">
+                                <span class="sidebar-nav__icon">📈</span>
+                                Statistiques
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-nav__section">
+                    <h3 class="sidebar-nav__title">Gestion</h3>
+                    <ul class="sidebar-nav__list">
+                        <li class="sidebar-nav__item">
+                            <a href="#members" class="sidebar-nav__link">
+                                <span class="sidebar-nav__icon">👥</span>
+                                Membres
+                                <span class="sidebar-nav__badge">247</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="#subscriptions" class="sidebar-nav__link">
+                                <span class="sidebar-nav__icon">💳</span>
+                                Abonnements
+                            </a>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="#programs" class="sidebar-nav__link">
+                                <span class="sidebar-nav__icon">🏋️</span>
+                                Programmes
+                            </a>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="#coaches" class="sidebar-nav__link">
+                                <span class="sidebar-nav__icon">🥊</span>
+                                Coachs
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-nav__section">
+                    <h3 class="sidebar-nav__title">Configuration</h3>
+                    <ul class="sidebar-nav__list">
+                        <li class="sidebar-nav__item">
+                            <a href="#settings" class="sidebar-nav__link">
+                                <span class="sidebar-nav__icon">⚙️</span>
+                                Paramètres
+                            </a>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="#reports" class="sidebar-nav__link">
+                                <span class="sidebar-nav__icon">📋</span>
+                                Rapports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-nav__section">
+                    <h3 class="sidebar-nav__title">Site Web</h3>
+                    <ul class="sidebar-nav__list">
+                        <li class="sidebar-nav__item">
+                            <a href="landing-page.html" class="sidebar-nav__link">
+                                <span class="sidebar-nav__icon">🏠</span>
+                                Retour au site
+                            </a>
+                        </li>
+                        <li class="sidebar-nav__item">
+                            <a href="design-guide.html" class="sidebar-nav__link">
+                                <span class="sidebar-nav__icon">🎨</span>
+                                Design Guide
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="wrapper__main">
+            <!-- Admin Header -->
+            <header class="admin-header">
+                <div class="admin-header__content">
+                    <div class="admin-header__left">
+                        <h1 class="admin-header__title">Dashboard Body Gear</h1>
+                        <p class="admin-header__subtitle">Gestion de la salle de musculation</p>
+                    </div>
+                    
+                    <div class="admin-header__right">
+                        <!-- Theme Toggle sera ajouté automatiquement -->
+                        <div class="admin-header__user">
+                            <div class="admin-user">
+                                <div class="admin-user__avatar">👨‍💼</div>
+                                <div class="admin-user__info">
+                                    <span class="admin-user__name">Admin Body Gear</span>
+                                    <span class="admin-user__role">Gestionnaire</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="admin-content">
+                <!-- Stats Cards -->
+                <section class="admin-section" id="dashboard">
+                    <div class="admin-section__header">
+                        <h2 class="admin-section__title">Vue d'ensemble</h2>
+                        <p class="admin-section__subtitle">Statistiques en temps réel de Body Gear</p>
+                    </div>
+                    
+                    <div class="grid grid--4">
+                        <div class="card admin-card admin-card--stat card--primary">
+                            <div class="card__body">
+                                <div class="admin-stat">
+                                    <div class="admin-stat__icon">👥</div>
+                                    <div class="admin-stat__content">
+                                        <span class="admin-stat__value">247</span>
+                                        <span class="admin-stat__label">Membres actifs</span>
+                                    </div>
+                                    <div class="admin-stat__trend admin-stat__trend--up">
+                                        <span>+12%</span>
+                                        <span>📈</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card admin-card admin-card--stat card--success">
+                            <div class="card__body">
+                                <div class="admin-stat">
+                                    <div class="admin-stat__icon">💰</div>
+                                    <div class="admin-stat__content">
+                                        <span class="admin-stat__value">11,340€</span>
+                                        <span class="admin-stat__label">CA ce mois</span>
+                                    </div>
+                                    <div class="admin-stat__trend admin-stat__trend--up">
+                                        <span>+8%</span>
+                                        <span>📈</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card admin-card admin-card--stat card--warning">
+                            <div class="card__body">
+                                <div class="admin-stat">
+                                    <div class="admin-stat__icon">🏋️</div>
+                                    <div class="admin-stat__content">
+                                        <span class="admin-stat__value">89%</span>
+                                        <span class="admin-stat__label">Taux présence</span>
+                                    </div>
+                                    <div class="admin-stat__trend admin-stat__trend--down">
+                                        <span>-3%</span>
+                                        <span>📉</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card admin-card admin-card--stat">
+                            <div class="card__body">
+                                <div class="admin-stat">
+                                    <div class="admin-stat__icon">⭐</div>
+                                    <div class="admin-stat__content">
+                                        <span class="admin-stat__value">4.9</span>
+                                        <span class="admin-stat__label">Satisfaction</span>
+                                    </div>
+                                    <div class="admin-stat__trend admin-stat__trend--stable">
+                                        <span>—</span>
+                                        <span>➡️</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Actions -->
+                <section class="admin-section">
+                    <div class="admin-section__header">
+                        <h2 class="admin-section__title">Actions rapides</h2>
+                    </div>
+                    
+                    <div class="grid grid--3">
+                        <div class="card admin-card card--clickable" tabindex="0">
+                            <div class="card__body text-center">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
+                                <h3 class="card__title">Nouveau membre</h3>
+                                <p class="card__text">Inscrire un nouveau warrior</p>
+                                <a href="index.html" class="btn btn--primary btn--small">
+                                    Ajouter
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card admin-card card--clickable" tabindex="0">
+                            <div class="card__body text-center">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
+                                <h3 class="card__title">Newsletter</h3>
+                                <p class="card__text">Envoyer une communication</p>
+                                <button class="btn btn--outline btn--small">
+                                    Composer
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="card admin-card card--clickable" tabindex="0">
+                            <div class="card__body text-center">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                                <h3 class="card__title">Rapport mensuel</h3>
+                                <p class="card__text">Générer les statistiques</p>
+                                <button class="btn btn--success btn--small">
+                                    Générer
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Members Table -->
+                <section class="admin-section" id="members">
+                    <div class="admin-section__header">
+                        <h2 class="admin-section__title">Gestion des membres</h2>
+                        <p class="admin-section__subtitle">Liste des warriors inscrits chez Body Gear</p>
+                    </div>
+                    
+                    <!-- Table Controls -->
+                    <div class="table-controls">
+                        <div class="table-controls__left">
+                            <div class="form__group">
+                                <input type="search" 
+                                       class="form__input form__input--small" 
+                                       placeholder="Rechercher un membre..."
+                                       style="width: 300px;">
+                            </div>
+                            <div class="form__group">
+                                <select class="form__select form__select--small">
+                                    <option>Tous les statuts</option>
+                                    <option>Actifs</option>
+                                    <option>Suspendus</option>
+                                    <option>Expirés</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="table-controls__right">
+                            <button class="btn btn--outline btn--small">
+                                <span class="btn__icon">📥</span>
+                                Exporter
+                            </button>
+                            <a href="index.html" class="btn btn--primary btn--small">
+                                <span class="btn__icon">➕</span>
+                                Nouveau membre
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Members Table -->
+                    <div class="card admin-card">
+                        <div class="table-container">
+                            <table class="table admin-table table--striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <input type="checkbox" class="form__checkbox">
+                                        </th>
+                                        <th>Membre</th>
+                                        <th>Email</th>
+                                        <th>Abonnement</th>
+                                        <th>Statut</th>
+                                        <th>Dernière visite</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="form__checkbox">
+                                        </td>
+                                        <td>
+                                            <div class="member-info">
+                                                <div class="member-info__avatar">👨‍💼</div>
+                                                <div class="member-info__details">
+                                                    <span class="member-info__name">Marc Durand</span>
+                                                    <span class="member-info__id">#BG247</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>marc.durand@email.com</td>
+                                        <td>
+                                            <span class="badge badge--warning">Warrior</span>
+                                        </td>
+                                        <td>
+                                            <span class="status-badge status-badge--active">
+                                                <span class="status-badge__dot"></span>
+                                                Actif
+                                            </span>
+                                        </td>
+                                        <td>Aujourd'hui</td>
+                                        <td>
+                                            <div class="table-actions">
+                                                <button class="btn btn--ghost btn--small" title="Voir le profil">👁️</button>
+                                                <button class="btn btn--ghost btn--small" title="Modifier">✏️</button>
+                                                <button class="btn btn--ghost btn--small" title="Suspendre">⏸️</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="form__checkbox">
+                                        </td>
+                                        <td>
+                                            <div class="member-info">
+                                                <div class="member-info__avatar">👩‍🎓</div>
+                                                <div class="member-info__details">
+                                                    <span class="member-info__name">Sarah Martin</span>
+                                                    <span class="member-info__id">#BG156</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>sarah.martin@email.com</td>
+                                        <td>
+                                            <span class="badge badge--primary">Gladiator</span>
+                                        </td>
+                                        <td>
+                                            <span class="status-badge status-badge--active">
+                                                <span class="status-badge__dot"></span>
+                                                Actif
+                                            </span>
+                                        </td>
+                                        <td>Hier</td>
+                                        <td>
+                                            <div class="table-actions">
+                                                <button class="btn btn--ghost btn--small" title="Voir le profil">👁️</button>
+                                                <button class="btn btn--ghost btn--small" title="Modifier">✏️</button>
+                                                <button class="btn btn--ghost btn--small" title="Suspendre">⏸️</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="form__checkbox">
+                                        </td>
+                                        <td>
+                                            <div class="member-info">
+                                                <div class="member-info__avatar">👨‍🔧</div>
+                                                <div class="member-info__details">
+                                                    <span class="member-info__name">Kevin Moreau</span>
+                                                    <span class="member-info__id">#BG089</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>kevin.moreau@email.com</td>
+                                        <td>
+                                            <span class="badge badge--success">Découverte</span>
+                                        </td>
+                                        <td>
+                                            <span class="status-badge status-badge--expired">
+                                                <span class="status-badge__dot"></span>
+                                                Expiré
+                                            </span>
+                                        </td>
+                                        <td>Il y a 5 jours</td>
+                                        <td>
+                                            <div class="table-actions">
+                                                <button class="btn btn--ghost btn--small" title="Voir le profil">👁️</button>
+                                                <button class="btn btn--ghost btn--small" title="Modifier">✏️</button>
+                                                <button class="btn btn--ghost btn--small" title="Renouveler">🔄</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="form__checkbox">
+                                        </td>
+                                        <td>
+                                            <div class="member-info">
+                                                <div class="member-info__avatar">👩‍💻</div>
+                                                <div class="member-info__details">
+                                                    <span class="member-info__name">Julie Petit</span>
+                                                    <span class="member-info__id">#BG198</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>julie.petit@email.com</td>
+                                        <td>
+                                            <span class="badge badge--warning">Warrior</span>
+                                        </td>
+                                        <td>
+                                            <span class="status-badge status-badge--suspended">
+                                                <span class="status-badge__dot"></span>
+                                                Suspendu
+                                            </span>
+                                        </td>
+                                        <td>Il y a 2 semaines</td>
+                                        <td>
+                                            <div class="table-actions">
+                                                <button class="btn btn--ghost btn--small" title="Voir le profil">👁️</button>
+                                                <button class="btn btn--ghost btn--small" title="Modifier">✏️</button>
+                                                <button class="btn btn--ghost btn--small" title="Réactiver">▶️</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="form__checkbox">
+                                        </td>
+                                        <td>
+                                            <div class="member-info">
+                                                <div class="member-info__avatar">👨‍🎨</div>
+                                                <div class="member-info__details">
+                                                    <span class="member-info__name">Antoine Leroy</span>
+                                                    <span class="member-info__id">#BG301</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>antoine.leroy@email.com</td>
+                                        <td>
+                                            <span class="badge badge--primary">Gladiator</span>
+                                        </td>
+                                        <td>
+                                            <span class="status-badge status-badge--active">
+                                                <span class="status-badge__dot"></span>
+                                                Actif
+                                            </span>
+                                        </td>
+                                        <td>Aujourd'hui</td>
+                                        <td>
+                                            <div class="table-actions">
+                                                <button class="btn btn--ghost btn--small" title="Voir le profil">👁️</button>
+                                                <button class="btn btn--ghost btn--small" title="Modifier">✏️</button>
+                                                <button class="btn btn--ghost btn--small" title="Suspendre">⏸️</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="table-footer">
+                            <div class="table-footer__info">
+                                Affichage de 1 à 5 sur 247 membres
+                            </div>
+                            <div class="pagination pagination--small">
+                                <ul class="pagination__list">
+                                    <li class="pagination__item pagination__prev">
+                                        <a href="#" class="pagination__link pagination__link--disabled">‹ Précédent</a>
+                                    </li>
+                                    <li class="pagination__item">
+                                        <a href="#" class="pagination__link pagination__link--active">1</a>
+                                    </li>
+                                    <li class="pagination__item">
+                                        <a href="#" class="pagination__link">2</a>
+                                    </li>
+                                    <li class="pagination__item">
+                                        <a href="#" class="pagination__link">3</a>
+                                    </li>
+                                    <li class="pagination__item pagination__dots">...</li>
+                                    <li class="pagination__item">
+                                        <a href="#" class="pagination__link">50</a>
+                                    </li>
+                                    <li class="pagination__item pagination__next">
+                                        <a href="#" class="pagination__link">Suivant ›</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Activity -->
+                <section class="admin-section">
+                    <div class="admin-section__header">
+                        <h2 class="admin-section__title">Activité récente</h2>
+                    </div>
+                    
+                    <div class="grid grid--2">
+                        <div class="card admin-card">
+                            <div class="card__header">
+                                <h3 class="card__title">Nouvelles inscriptions</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-item__avatar">👨‍💼</div>
+                                        <div class="activity-item__content">
+                                            <p><strong>Marc Durand</strong> s'est inscrit</p>
+                                            <span class="activity-item__time">Il y a 2 heures</span>
+                                        </div>
+                                        <div class="activity-item__action">
+                                            <span class="badge badge--success">Warrior</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="activity-item">
+                                        <div class="activity-item__avatar">👩‍🎓</div>
+                                        <div class="activity-item__content">
+                                            <p><strong>Sarah Martin</strong> a renouvelé</p>
+                                            <span class="activity-item__time">Il y a 4 heures</span>
+                                        </div>
+                                        <div class="activity-item__action">
+                                            <span class="badge badge--primary">Gladiator</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="activity-item">
+                                        <div class="activity-item__avatar">👨‍🔧</div>
+                                        <div class="activity-item__content">
+                                            <p><strong>Kevin Moreau</strong> abonnement expiré</p>
+                                            <span class="activity-item__time">Hier</span>
+                                        </div>
+                                        <div class="activity-item__action">
+                                            <span class="badge badge--error">Expiré</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card admin-card">
+                            <div class="card__header">
+                                <h3 class="card__title">Programmes populaires</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="popularity-list">
+                                    <div class="popularity-item">
+                                        <div class="popularity-item__info">
+                                            <span class="popularity-item__name">🏋️ Force Brute</span>
+                                            <span class="popularity-item__count">89 membres</span>
+                                        </div>
+                                        <div class="popularity-item__bar">
+                                            <div class="popularity-bar">
+                                                <div class="popularity-bar__fill" style="width: 89%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="popularity-item">
+                                        <div class="popularity-item__info">
+                                            <span class="popularity-item__name">⚡ Cardio Warrior</span>
+                                            <span class="popularity-item__count">67 membres</span>
+                                        </div>
+                                        <div class="popularity-item__bar">
+                                            <div class="popularity-bar">
+                                                <div class="popularity-bar__fill" style="width: 67%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="popularity-item">
+                                        <div class="popularity-item__info">
+                                            <span class="popularity-item__name">💪 Body Builder</span>
+                                            <span class="popularity-item__count">91 membres</span>
+                                        </div>
+                                        <div class="popularity-item__bar">
+                                            <div class="popularity-bar">
+                                                <div class="popularity-bar__fill" style="width: 91%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>

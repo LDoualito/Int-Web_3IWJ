@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Body Gear | Musculation Old School</title>
+    <meta name="description" content="Rejoignez Body Gear, la salle de musculation authentique. Inscription rapide pour commencer votre transformation physique dès aujourd'hui.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏋️</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/scss/main.scss">
+    
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <!-- Skip Links -->
+    <div class="skip-links">
+        <a href="#main-content" class="skip-link sr-only">Aller au contenu principal</a>
+        <a href="#main-navigation" class="skip-link sr-only">Aller à la navigation</a>
+    </div>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <nav class="nav" id="main-navigation" role="navigation" aria-label="Navigation principale">
+                <!-- Logo -->
+                <a href="landing-page.html" class="logo nav__logo">
+                    <strong>BG</strong>
+                </a>
+                
+                <!-- Navigation Desktop -->
+                <ul class="nav__menu" role="menubar">
+                    <li class="nav__item" role="none">
+                        <a href="landing-page.html" class="nav__link" role="menuitem">Accueil</a>
+                    </li>
+                    <li class="nav__item" role="none">
+                        <a href="landing-page.html#programmes" class="nav__link" role="menuitem">Programmes</a>
+                    </li>
+                    <li class="nav__item" role="none">
+                        <a href="landing-page.html#tarifs" class="nav__link" role="menuitem">Tarifs</a>
+                    </li>
+                    <li class="nav__item" role="none">
+                        <a href="index.html" class="nav__link nav__link--active" role="menuitem" aria-current="page">Inscription</a>
+                    </li>
+                    <li class="nav__item" role="none">
+                        <a href="back-office.html" class="nav__link" role="menuitem">Admin</a>
+                    </li>
+                </ul>
+                
+                <!-- Actions -->
+                <div class="nav__actions">
+                    <!-- Theme Toggle sera ajouté automatiquement par JS -->
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="nav__toggle btn btn--ghost btn--icon-only" 
+                            aria-expanded="false" 
+                            aria-controls="nav-menu" 
+                            aria-label="Ouvrir le menu de navigation">
+                        <span class="nav__toggle-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero hero--compact">
+            <div class="container">
+                <h1 class="hero__title">
+                    Rejoins la Team Body Gear 💪
+                </h1>
+                <p class="hero__subtitle">
+                    Prêt à forger ton corps ? L'inscription ne prend que 2 minutes.<br>
+                    Commence ta transformation dès aujourd'hui !
+                </p>
+                
+                <div class="hero__stats">
+                    <div class="stat">
+                        <span class="stat__number">500+</span>
+                        <span class="stat__label">Membres actifs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number">15</span>
+                        <span class="stat__label">Ans d'expérience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number">24/7</span>
+                        <span class="stat__label">Accès libre</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signup Form Section -->
+        <section class="section section--compact">
+            <div class="container">
+                <form class="form form--signup" id="signup-form" novalidate>
+                    <header class="form__header">
+                        <h2 class="form__title">Inscription Body Gear</h2>
+                        <p class="form__subtitle">
+                            Remplis ce formulaire pour rejoindre notre communauté de warriors 🔥
+                        </p>
+                    </header>
+                    
+                    <!-- Section 1: Informations personnelles -->
+                    <section class="form__section">
+                        <h3 class="form__section-title">📝 Informations personnelles</h3>
+                        
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label for="firstName" class="form__label form__label--required">Prénom</label>
+                                <input type="text" 
+                                       id="firstName" 
+                                       name="firstName" 
+                                       class="form__input" 
+                                       placeholder="Ton prénom"
+                                       required
+                                       autocomplete="given-name">
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="lastName" class="form__label form__label--required">Nom</label>
+                                <input type="text" 
+                                       id="lastName" 
+                                       name="lastName" 
+                                       class="form__input" 
+                                       placeholder="Ton nom de famille"
+                                       required
+                                       autocomplete="family-name">
+                            </div>
+                        </div>
+                        
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label for="email" class="form__label form__label--required">Email</label>
+                                <input type="email" 
+                                       id="email" 
+                                       name="email" 
+                                       class="form__input" 
+                                       placeholder="ton.email@exemple.com"
+                                       required
+                                       autocomplete="email">
+                                <span class="form__help">Nous ne partagerons jamais ton email avec des tiers.</span>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="phone" class="form__label">Téléphone <em>(optionnel)</em></label>
+                                <input type="tel" 
+                                       id="phone" 
+                                       name="phone" 
+                                       class="form__input" 
+                                       placeholder="06 12 34 56 78"
+                                       autocomplete="tel">
+                                <span class="form__help">Pour te contacter en cas d'urgence ou d'info importante.</span>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 2: Objectifs et niveau -->
+                    <section class="form__section">
+                        <h3 class="form__section-title">🎯 Ton objectif principal</h3>
+                        
+                        <div class="form__group">
+                            <div class="form__choice-group form__choice-group--grid">
+                                <div class="form__choice-card">
+                                    <input type="radio" 
+                                           id="goal-mass" 
+                                           name="goal" 
+                                           value="mass" 
+                                           class="form__radio" 
+                                           required>
+                                    <div class="form__choice-content">
+                                        <div class="form__choice-title">💪 Prise de masse</div>
+                                        <div class="form__choice-description">
+                                            Développer ta musculature et prendre du volume
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form__choice-card">
+                                    <input type="radio" 
+                                           id="goal-strength" 
+                                           name="goal" 
+                                           value="strength" 
+                                           class="form__radio" 
+                                           required>
+                                    <div class="form__choice-content">
+                                        <div class="form__choice-title">🏋️ Force pure</div>
+                                        <div class="form__choice-description">
+                                            Augmenter ta force maximale et tes performances
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form__choice-card">
+                                    <input type="radio" 
+                                           id="goal-endurance" 
+                                           name="goal" 
+                                           value="endurance" 
+                                           class="form__radio" 
+                                           required>
+                                    <div class="form__choice-content">
+                                        <div class="form__choice-title">⚡ Endurance</div>
+                                        <div class="form__choice-description">
+                                            Améliorer ton cardio et ta résistance
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form__choice-card">
+                                    <input type="radio" 
+                                           id="goal-loss" 
+                                           name="goal" 
+                                           value="weight-loss" 
+                                           class="form__radio" 
+                                           required>
+                                    <div class="form__choice-content">
+                                        <div class="form__choice-title">🔥 Perte de poids</div>
+                                        <div class="form__choice-description">
+                                            Perdre du gras et sculpter ton physique
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 3: Niveau d'expérience -->
+                    <section class="form__section">
+                        <h3 class="form__section-title">📊 Ton niveau actuel</h3>
+                        
+                        <div class="form__group">
+                            <div class="form__choice-group form__choice-group--horizontal">
+                                <div class="form__choice">
+                                    <input type="radio" 
+                                           id="level-beginner" 
+                                           name="level" 
+                                           value="beginner" 
+                                           class="form__radio" 
+                                           required>
+                                    <label for="level-beginner" class="form__choice-label">
+                                        <strong>🌱 Débutant</strong><br>
+                                        <small>Moins de 6 mois d'expérience</small>
+                                    </label>
+                                </div>
+                                
+                                <div class="form__choice">
+                                    <input type="radio" 
+                                           id="level-intermediate" 
+                                           name="level" 
+                                           value="intermediate" 
+                                           class="form__radio" 
+                                           required>
+                                    <label for="level-intermediate" class="form__choice-label">
+                                        <strong>⚡ Intermédiaire</strong><br>
+                                        <small>6 mois à 2 ans d'expérience</small>
+                                    </label>
+                                </div>
+                                
+                                <div class="form__choice">
+                                    <input type="radio" 
+                                           id="level-advanced" 
+                                           name="level" 
+                                           value="advanced" 
+                                           class="form__radio" 
+                                           required>
+                                    <label for="level-advanced" class="form__choice-label">
+                                        <strong>🔥 Avancé</strong><br>
+                                        <small>Plus de 2 ans d'expérience</small>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 4: Informations complémentaires -->
+                    <section class="form__section">
+                        <h3 class="form__section-title">💬 Dis-nous en plus</h3>
+                        
+                        <div class="form__group">
+                            <label for="comments" class="form__label">Commentaires ou questions <em>(optionnel)</em></label>
+                            <textarea id="comments" 
+                                      name="comments" 
+                                      class="form__textarea" 
+                                      placeholder="Raconte-nous tes objectifs, tes attentes, ou pose tes questions... On est là pour t'aider ! 💪"
+                                      maxlength="500"
+                                      rows="4"></textarea>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 5: Préférences et conditions -->
+                    <section class="form__section">
+                        <h3 class="form__section-title">✅ Dernières infos</h3>
+                        
+                        <div class="form__group">
+                            <div class="form__choice">
+                                <input type="checkbox" 
+                                       id="newsletter" 
+                                       name="newsletter" 
+                                       value="1" 
+                                       class="form__checkbox">
+                                <label for="newsletter" class="form__choice-label">
+                                    <strong>📧 Newsletter Body Gear</strong><br>
+                                    Recevoir nos conseils d'entraînement, nos programmes exclusifs et nos offres spéciales.
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form__group">
+                            <div class="form__choice">
+                                <input type="checkbox" 
+                                       id="terms" 
+                                       name="terms" 
+                                       value="1" 
+                                       class="form__checkbox" 
+                                       required>
+                                <label for="terms" class="form__choice-label">
+                                    <strong>📋 Conditions générales d'utilisation</strong><br>
+                                    J'accepte les <a href="#" class="text-primary">conditions générales</a> et la <a href="#" class="text-primary">politique de confidentialité</a> de Body Gear.
+                                    <span class="form__required-indicator">*</span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Actions -->
+                    <div class="form__actions">
+                        <button type="button" class="btn btn--outline btn--large" onclick="history.back()">
+                            ← Retour
+                        </button>
+                        
+                        <button type="submit" class="btn btn--primary btn--large">
+                            <span class="btn__text">Rejoindre Body Gear</span>
+                            <span class="btn__icon">🚀</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Benefits Section -->
+        <section class="section section--secondary">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Pourquoi choisir Body Gear ?</h2>
+                    <p class="section__description">
+                        La musculation authentique, sans chichis, avec des résultats garantis
+                    </p>
+                </div>
+                
+                <div class="grid grid--3">
+                    <div class="card card--elevated">
+                        <div class="card__body text-center">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🏋️</div>
+                            <h3 class="card__title">Équipements Old School</h3>
+                            <p class="card__text">
+                                Fonte libre, barres olympiques, racks de squat. 
+                                Du matériel authentique pour des résultats authentiques.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="card card--elevated">
+                        <div class="card__body text-center">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
+                            <h3 class="card__title">Communauté Unie</h3>
+                            <p class="card__text">
+                                Rejoins une famille de passionnés qui s'entraident 
+                                et se motivent pour atteindre leurs objectifs.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="card card--elevated">
+                        <div class="card__body text-center">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                            <h3 class="card__title">Coaching Personnalisé</h3>
+                            <p class="card__text">
+                                Programmes adaptés à ton niveau et tes objectifs, 
+                                avec un suivi personnalisé par nos coachs expérimentés.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="section section--compact">
+            <div class="container text-center">
+                <h2 class="section__title">Prêt à commencer ?</h2>
+                <p class="section__description">
+                    Plus que quelques clics et tu fais partie de la famille Body Gear ! 💪
+                </p>
+                
+                <div class="btn-toolbar btn-toolbar--centered">
+                    <a href="#signup-form" class="btn btn--primary btn--large">
+                        Finaliser mon inscription
+                    </a>
+                    <a href="landing-page.html" class="btn btn--outline btn--large">
+                        En savoir plus
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="grid grid--4">
+                <div class="footer__section">
+                    <h4 class="footer__title">Body Gear</h4>
+                    <p class="footer__text">
+                        La musculation authentique depuis 2009. 
+                        Forge ton corps, forge ton mental.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="footer__social-link" aria-label="Instagram">📷</a>
+                        <a href="#" class="footer__social-link" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__title">Navigation</h4>
+                    <ul class="footer__links">
+                        <li><a href="landing-page.html" class="footer__link">Accueil</a></li>
+                        <li><a href="landing-page.html#programmes" class="footer__link">Programmes</a></li>
+                        <li><a href="landing-page.html#tarifs" class="footer__link">Tarifs</a></li>
+                        <li><a href="index.html" class="footer__link">Inscription</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__title">Informations</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">À propos</a></li>
+                        <li><a href="#" class="footer__link">Contact</a></li>
+                        <li><a href="#" class="footer__link">Conditions générales</a></li>
+                        <li><a href="#" class="footer__link">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__title">Contact</h4>
+                    <div class="footer__contact">
+                        <p>📍 123 Rue de la Force<br>75001 Paris</p>
+                        <p>📞 01 23 45 67 89</p>
+                        <p>✉️ contact@bodygear.fr</p>
+                        <p>🕒 Ouvert 24h/24, 7j/7</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <div class="footer__copy">
+                    <p>&copy; 2024 Body Gear. Tous droits réservés. Forge ton destin 💪</p>
+                </div>
+                <div class="footer__links-bottom">
+                    <a href="design-guide.html" class="footer__link">Design Guide</a>
+                    <a href="back-office.html" class="footer__link">Administration</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="src/js/main.js"></script>
+    
+    <!-- Style pour les skip links -->
+    <style>
+        .skip-links {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            z-index: 1000;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: rgb(var(--color-primary));
+            color: rgb(var(--color-white));
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        /* Navigation Toggle Icon */
+        .nav__toggle-icon {
+            display: flex;
+            flex-direction: column;
+            width: 1.5rem;
+            height: 1.5rem;
+            justify-content: space-around;
+        }
+        
+        .nav__toggle-icon span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: currentColor;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        
+        .nav__toggle--active .nav__toggle-icon span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .nav__toggle--active .nav__toggle-icon span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .nav__toggle--active .nav__toggle-icon span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background-color: rgb(var(--color-secondary));
+            color: rgb(var(--color-white));
+            padding: var(--spacing-4xl) 0 var(--spacing-xl);
+            margin-top: auto;
+        }
+        
+        .footer__title {
+            color: rgb(var(--color-primary));
+            margin-bottom: var(--spacing-lg);
+            font-family: var(--font-heading);
+            font-weight: var(--font-weight-bold);
+        }
+        
+        .footer__text {
+            color: rgba(var(--color-white), 0.8);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .footer__links {
+            list-style: none;
+        }
+        
+        .footer__links li {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .footer__link {
+            color: rgba(var(--color-white), 0.7);
+            text-decoration: none;
+            transition: var(--transition-colors);
+        }
+        
+        .footer__link:hover {
+            color: rgb(var(--color-primary));
+        }
+        
+        .footer__social {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .footer__social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(var(--color-white), 0.1);
+            border-radius: var(--border-radius-md);
+            text-decoration: none;
+            transition: var(--transition-all);
+        }
+        
+        .footer__social-link:hover {
+            background-color: rgb(var(--color-primary));
+            transform: translateY(-2px);
+        }
+        
+        .footer__contact p {
+            color: rgba(var(--color-white), 0.8);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .footer__bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+            border-top: 1px solid rgba(var(--color-white), 0.1);
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+        }
+        
+        .footer__copy p {
+            color: rgba(var(--color-white), 0.6);
+            margin: 0;
+        }
+        
+        .footer__links-bottom {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+        
+        @media (max-width: 767px) {
+            .footer__bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .grid--4 {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-2xl);
+            }
+        }
+    </style>
+</body>
+</html>

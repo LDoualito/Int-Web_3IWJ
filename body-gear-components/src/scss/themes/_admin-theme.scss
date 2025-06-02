@@ -1,0 +1,318 @@
+// ============================================================================
+// ADMIN THEME - BODY GEAR COMPONENTS
+// Thème alternatif pour l'interface d'administration 📊
+// Variation de couleurs et d'espacement pour différencier le back-office
+// ============================================================================
+
+// ========================================
+// THÈME ADMIN - Couleurs professionnelles
+// ========================================
+
+[data-theme="admin"] {
+  
+  // ========================================
+  // COULEURS PRINCIPALES ADMIN
+  // ========================================
+  
+  // Palette plus professionnelle et sobre
+  --color-primary: 59, 130, 246;        // Bleu professionnel #3B82F6
+  --color-secondary: 51, 65, 85;        // Gris ardoise #334155
+  --color-success: 34, 197, 94;         // Vert moderne #22C55E
+  --color-warning: 249, 115, 22;        // Orange professionnel #F97316
+  --color-error: 239, 68, 68;           // Rouge standard #EF4444
+  --color-info: 14, 165, 233;           // Bleu info #0EA5E9
+  
+  // Couleurs neutres admin - Plus froides
+  --color-background: 248, 250, 252;     // Bleu très pâle #F8FAFC
+  --color-surface: 255, 255, 255;        // Blanc pur #FFFFFF
+  --color-surface-elevated: 241, 245, 249; // Gris bleuté très clair #F1F5F9
+  --color-text-primary: 15, 23, 42;      // Gris très foncé #0F172A
+  --color-text-secondary: 51, 65, 85;    // Gris ardoise #334155
+  --color-text-muted: 100, 116, 139;     // Gris moyen #64748B
+  --color-border: 226, 232, 240;         // Gris bordure #E2E8F0
+  --color-border-hover: 203, 213, 225;   // Gris bordure hover #CBD5E1
+  
+  // ========================================
+  // ESPACEMENTS ADMIN - Plus compacts
+  // ========================================
+  
+  // Réduction générale des espacements pour plus d'efficacité
+  --spacing-xs: 0.25rem;     // 4px - Inchangé
+  --spacing-sm: 0.375rem;    // 6px - Réduit
+  --spacing-md: 0.625rem;    // 10px - Réduit
+  --spacing-lg: 0.875rem;    // 14px - Réduit
+  --spacing-xl: 1.125rem;    // 18px - Réduit
+  --spacing-2xl: 1.375rem;   // 22px - Réduit
+  --spacing-3xl: 1.75rem;    // 28px - Réduit
+  --spacing-4xl: 2.25rem;    // 36px - Réduit
+  --spacing-5xl: 2.75rem;    // 44px - Réduit
+  
+  // ========================================
+  // TYPOGRAPHIE ADMIN - Plus lisible
+  // ========================================
+  
+  // Tailles plus petites pour interface dense
+  --font-size-xs: 0.6875rem;    // 11px - Plus petit
+  --font-size-sm: 0.8125rem;    // 13px - Plus petit
+  --font-size-base: 0.9375rem;  // 15px - Plus petit
+  --font-size-lg: 1.0625rem;    // 17px - Plus petit
+  --font-size-xl: 1.1875rem;    // 19px - Plus petit
+  --font-size-2xl: 1.375rem;    // 22px - Plus petit
+  --font-size-3xl: 1.625rem;    // 26px - Plus petit
+  --font-size-4xl: 2rem;        // 32px - Plus petit
+  
+  // Hauteurs de ligne plus serrées
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+  
+  // ========================================
+  // COMPOSANTS ADMIN SPÉCIFIQUES
+  // ========================================
+  
+  // Header admin plus compact
+  --header-height: 3.5rem;        // 56px - Plus petit
+  --header-height-mobile: 3rem;   // 48px - Plus petit
+  
+  // Sidebar admin
+  --sidebar-width: 14rem;          // 224px - Plus étroit
+  --sidebar-width-collapsed: 3.5rem; // 56px - Plus étroit
+  
+  // Formulaires admin plus compacts
+  --form-input-height: 2.5rem;    // 40px - Plus petit
+  --form-input-padding: var(--spacing-sm) var(--spacing-md);
+  
+  // Boutons admin plus petits
+  --button-height-sm: 1.75rem;    // 28px - Plus petit
+  --button-height-md: 2.25rem;    // 36px - Plus petit
+  --button-height-lg: 2.75rem;    // 44px - Plus petit
+  --button-height-xl: 3.25rem;    // 52px - Plus petit
+  
+  // Cards admin plus compactes
+  --card-padding: var(--spacing-lg);
+  --card-padding-sm: var(--spacing-md);
+  
+  // Grid admin plus serré
+  --grid-gap: var(--spacing-md);
+  --grid-gap-sm: var(--spacing-sm);
+  --grid-gap-lg: var(--spacing-xl);
+  
+  // ========================================
+  // OMBRES ADMIN - Plus subtiles
+  // ========================================
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 2px 4px -1px rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 6px 12px -2px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 12px 20px -4px rgba(0, 0, 0, 0.1), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
+  
+  // Ombres colorées admin
+  --shadow-primary: 0 4px 12px 0 rgba(59, 130, 246, 0.15);
+  --shadow-success: 0 4px 12px 0 rgba(34, 197, 94, 0.15);
+  --shadow-warning: 0 4px 12px 0 rgba(249, 115, 22, 0.15);
+  --shadow-error: 0 4px 12px 0 rgba(239, 68, 68, 0.15);
+}
+
+// ========================================
+// THÈME ADMIN DARK MODE
+// ========================================
+
+[data-theme="admin"][data-dark="true"],
+[data-theme="admin-dark"] {
+  
+  // Backgrounds admin sombres
+  --color-background: 15, 23, 42;        // Gris bleuté très sombre #0F172A
+  --color-surface: 30, 41, 59;           // Gris bleuté sombre #1E293B
+  --color-surface-elevated: 51, 65, 85;  // Gris ardoise #334155
+  
+  // Textes admin sombres
+  --color-text-primary: 248, 250, 252;   // Blanc bleuté #F8FAFC
+  --color-text-secondary: 203, 213, 225; // Gris clair bleuté #CBD5E1
+  --color-text-muted: 148, 163, 184;     // Gris moyen bleuté #94A3B8
+  
+  // Bordures admin sombres
+  --color-border: 71, 85, 105;           // Gris foncé bleuté #475569
+  --color-border-hover: 100, 116, 139;   // Gris moyen bleuté #64748B
+  
+  // Couleurs principales adaptées pour admin dark
+  --color-primary: 96, 165, 250;         // Bleu plus clair #60A5FA
+  --color-success: 74, 222, 128;         // Vert plus clair #4ADE80
+  --color-warning: 251, 146, 60;         // Orange plus clair #FB923C
+}
+
+// ========================================
+// STYLES SPÉCIFIQUES ADMIN
+// ========================================
+
+[data-theme="admin"] {
+  
+  // Interface plus dense et efficace
+  .admin-layout {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  }
+  
+  // Tables admin avec plus de données
+  .admin-table {
+    th, td {
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-size: var(--font-size-sm);
+    }
+    
+    th {
+      background-color: rgb(var(--color-surface-elevated));
+      border-bottom: 2px solid rgb(var(--color-border));
+      font-weight: var(--font-weight-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+    }
+    
+    tbody tr {
+      border-bottom: var(--border-width) solid rgb(var(--color-border));
+      
+      &:hover {
+        background-color: rgba(var(--color-primary), 0.04);
+      }
+      
+      &:nth-child(even) {
+        background-color: rgba(var(--color-surface-elevated), 0.3);
+      }
+    }
+  }
+  
+  // Navigation admin plus compacte
+  .admin-nav {
+    .nav__link {
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+    }
+  }
+  
+  // Cards admin avec moins d'espace
+  .admin-card {
+    padding: var(--spacing-lg);
+    
+    .card__header {
+      padding-bottom: var(--spacing-md);
+      border-bottom: var(--border-width) solid rgb(var(--color-border));
+    }
+    
+    .card__title {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+    }
+  }
+  
+  // Formulaires admin plus efficaces
+  .admin-form {
+    .form__group {
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .form__label {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .form__input,
+    .form__select,
+    .form__textarea {
+      font-size: var(--font-size-sm);
+      padding: var(--spacing-sm) var(--spacing-md);
+    }
+  }
+  
+  // Boutons admin plus discrets
+  .admin-btn {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: var(--font-weight-medium);
+    
+    &.admin-btn--sm {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      font-size: var(--font-size-xs);
+    }
+  }
+  
+  // Statut badges plus petits
+  .admin-badge {
+    font-size: var(--font-size-xs);
+    padding: 0.25rem 0.5rem;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+// ========================================
+// UTILITIES ADMIN THEME
+// ========================================
+
+[data-theme="admin"] {
+  
+  // Classes pour espacement admin
+  .admin-tight {
+    --spacing-scale: 0.75;
+  }
+  
+  .admin-compact {
+    --spacing-scale: 0.875;
+  }
+  
+  .admin-normal {
+    --spacing-scale: 1;
+  }
+  
+  // Classes pour densité d'information
+  .admin-dense {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-tight);
+    
+    * {
+      margin-bottom: var(--spacing-xs);
+    }
+  }
+  
+  .admin-comfortable {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+  }
+}
+
+// ========================================
+// RESPONSIVE ADMIN THEME
+// ========================================
+
+[data-theme="admin"] {
+  
+  // Mobile admin - Interface encore plus compacte
+  @media (max-width: 767px) {
+    --spacing-lg: 0.75rem;    // 12px
+    --spacing-xl: 1rem;       // 16px
+    --spacing-2xl: 1.25rem;   // 20px
+    
+    --font-size-sm: 0.75rem;  // 12px
+    --font-size-base: 0.875rem; // 14px
+    
+    .admin-table {
+      th, td {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+      }
+    }
+  }
+  
+  // Desktop admin - Interface optimisée
+  @media (min-width: 1024px) {
+    .admin-layout {
+      --sidebar-width: 16rem;  // Plus large sur desktop
+    }
+    
+    .admin-grid {
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      gap: var(--spacing-lg);
+    }
+  }
+}

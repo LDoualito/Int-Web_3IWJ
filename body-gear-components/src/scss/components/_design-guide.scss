@@ -1,0 +1,739 @@
+// ============================================================================
+// DESIGN GUIDE COMPONENTS - BODY GEAR
+// Interface de documentation avec méthodologie BEM stricte
+// ============================================================================
+
+// ========================================
+// GUIDE SIDEBAR - Navigation du guide
+// ========================================
+
+.guide-sidebar {
+  width: var(--sidebar-width);
+  background-color: rgb(var(--color-background));
+  border-right: var(--border-width) solid rgb(var(--color-border));
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  z-index: var(--z-index-sticky);
+  transition: transform var(--transition-normal);
+  
+  // Elements
+  &__header {
+    padding: var(--spacing-xl);
+    border-bottom: var(--border-width) solid rgb(var(--color-border));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    color: rgb(var(--color-primary));
+    text-decoration: none;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    
+    &:hover {
+      color: rgba(var(--color-primary), 0.8);
+      text-decoration: none;
+    }
+  }
+  
+  &__logo-text {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+  }
+  
+  &__toolbar {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+  
+  &__btn {
+    font-size: var(--font-size-lg);
+    min-width: 2rem;
+    height: 2rem;
+  }
+  
+  // Responsive
+  @media (max-width: 1023px) {
+    transform: translateX(-100%);
+    
+    &--open {
+      transform: translateX(0);
+    }
+  }
+}
+
+// ========================================
+// GUIDE MAIN - Contenu principal
+// ========================================
+
+.guide-main {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  transition: margin-left var(--transition-normal);
+  
+  @media (max-width: 1023px) {
+    margin-left: 0;
+  }
+}
+
+// ========================================
+// GUIDE NAVIGATION - Menu latéral
+// ========================================
+
+.guide-nav {
+  padding: var(--spacing-lg) 0;
+  
+  // Elements
+  &__section {
+    margin-bottom: var(--spacing-xl);
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: rgb(var(--color-text-secondary));
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-lg);
+    padding: 0 var(--spacing-xl);
+  }
+  
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  &__item {
+    position: relative;
+  }
+  
+  &__link {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    color: rgb(var(--color-text-primary));
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    border-left: 3px solid transparent;
+    transition: var(--transition-colors);
+    
+    &:hover {
+      color: rgb(var(--color-primary));
+      background-color: rgba(var(--color-primary), 0.05);
+      text-decoration: none;
+    }
+    
+    &:focus {
+      outline: 2px solid rgba(var(--color-primary), 0.5);
+      outline-offset: -2px;
+    }
+    
+    &--active {
+      color: rgb(var(--color-primary));
+      background-color: rgba(var(--color-primary), 0.1);
+      border-left-color: rgb(var(--color-primary));
+      font-weight: var(--font-weight-semibold);
+    }
+    
+    &--external {
+      opacity: 0.8;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// ========================================
+// GUIDE HEADER - En-tête du guide
+// ========================================
+
+.guide-header {
+  background: linear-gradient(135deg, 
+    rgba(var(--color-primary), 0.1) 0%, 
+    rgba(var(--color-secondary), 0.05) 100%);
+  padding: var(--spacing-4xl) var(--spacing-xl);
+  border-bottom: var(--border-width) solid rgb(var(--color-border));
+  position: relative;
+  
+  // Effet de fond décoratif
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(var(--color-primary), 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(var(--color-secondary), 0.1) 0%, transparent 50%);
+    z-index: -1;
+  }
+  
+  // Elements
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  &__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: rgb(var(--color-primary));
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-tight);
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-3xl);
+    }
+  }
+  
+  &__subtitle {
+    font-size: var(--font-size-xl);
+    color: rgb(var(--color-text-secondary));
+    margin-bottom: var(--spacing-xl);
+    line-height: var(--line-height-normal);
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-lg);
+    }
+  }
+  
+  &__meta {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+  
+  // Responsive
+  @media (max-width: 767px) {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+}
+
+// ========================================
+// GUIDE CONTENT - Contenu principal
+// ========================================
+
+.guide-content {
+  padding: var(--spacing-xl);
+  
+  @media (max-width: 767px) {
+    padding: var(--spacing-lg);
+  }
+}
+
+// ========================================
+// GUIDE SECTION - Section de documentation
+// ========================================
+
+.guide-section {
+  margin-bottom: var(--spacing-5xl);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  // Elements
+  &__header {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  &__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+    scroll-margin-top: var(--spacing-4xl);
+    color: rgb(var(--color-text-primary));
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-2xl);
+    }
+  }
+  
+  &__description {
+    font-size: var(--font-size-lg);
+    color: rgb(var(--color-text-secondary));
+    margin: 0;
+    line-height: var(--line-height-relaxed);
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-base);
+    }
+  }
+}
+
+// ========================================
+// GUIDE SUBSECTION - Sous-sections
+// ========================================
+
+.guide-subsection {
+  
+  &__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin: var(--spacing-2xl) 0 var(--spacing-lg) 0;
+    color: rgb(var(--color-text-primary));
+    
+    @media (max-width: 767px) {
+      font-size: var(--font-size-lg);
+      margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+    }
+  }
+}
+
+// ========================================
+// GUIDE DEMO - Zone de démonstration
+// ========================================
+
+.guide-demo {
+  background-color: rgb(var(--color-surface));
+  border: var(--border-width) solid rgb(var(--color-border));
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+  
+  @media (max-width: 767px) {
+    padding: var(--spacing-lg);
+  }
+  
+  // Effet subtle de bordure intérieure
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(var(--color-primary), 0.1);
+    border-radius: var(--border-radius-lg);
+    pointer-events: none;
+  }
+}
+
+// ========================================
+// GUIDE CODE - Blocs de code
+// ========================================
+
+.guide-code {
+  background-color: rgb(var(--color-secondary));
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  position: relative;
+  
+  // Bouton copy (optionnel)
+  &::before {
+    content: '📋';
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: rgba(var(--color-white), 0.1);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+  
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.code-block {
+  margin: 0;
+  padding: var(--spacing-xl);
+  background: none;
+  color: rgb(var(--color-white));
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  overflow-x: auto;
+  
+  // Scrollbar styling
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: rgba(var(--color-white), 0.1);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--color-white), 0.3);
+    border-radius: var(--border-radius-sm);
+    
+    &:hover {
+      background-color: rgba(var(--color-white), 0.5);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    padding: var(--spacing-lg);
+    font-size: var(--font-size-xs);
+  }
+}
+
+// ========================================
+// COMPONENT SHOWCASE - Vitrine de composants
+// ========================================
+
+.component-showcase {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+  }
+  
+  @media (max-width: 767px) {
+    gap: var(--spacing-sm);
+  }
+}
+
+// ========================================
+// COLOR PALETTE - Palette de couleurs
+// ========================================
+
+.color-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+.color-sample {
+  border: var(--border-width) solid rgb(var(--color-border));
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background-color: rgb(var(--color-background));
+  transition: var(--transition-all);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  // Elements
+  &__preview {
+    height: 4rem;
+    position: relative;
+    
+    // Effet de texture subtile
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(45deg, 
+        rgba(255,255,255,0.1) 25%, 
+        transparent 25%, 
+        transparent 75%, 
+        rgba(255,255,255,0.1) 75%),
+        linear-gradient(45deg, 
+        rgba(255,255,255,0.1) 25%, 
+        transparent 25%, 
+        transparent 75%, 
+        rgba(255,255,255,0.1) 75%);
+      background-size: 8px 8px;
+      background-position: 0 0, 4px 4px;
+      opacity: 0.3;
+    }
+  }
+  
+  &__info {
+    padding: var(--spacing-lg);
+  }
+  
+  &__name {
+    display: block;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
+    color: rgb(var(--color-text-primary));
+  }
+  
+  &__value {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: rgb(var(--color-text-muted));
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  &__usage {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: rgb(var(--color-text-secondary));
+    line-height: var(--line-height-normal);
+  }
+  
+  // Modifiers pour chaque couleur
+  &--primary .color-sample__preview {
+    background-color: rgb(var(--color-primary));
+  }
+  
+  &--secondary .color-sample__preview {
+    background-color: rgb(var(--color-secondary));
+  }
+  
+  &--success .color-sample__preview {
+    background-color: rgb(var(--color-success));
+  }
+  
+  &--warning .color-sample__preview {
+    background-color: rgb(var(--color-warning));
+  }
+  
+  &--error .color-sample__preview {
+    background-color: rgb(var(--color-error));
+  }
+  
+  &--info .color-sample__preview {
+    background-color: rgb(var(--color-info));
+  }
+}
+
+// ========================================
+// TYPOGRAPHY SCALE - Échelle typographique
+// ========================================
+
+.typography-scale {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.typography-sample {
+  // Elements
+  &__text {
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-normal);
+  }
+  
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background-color: rgba(var(--color-border), 0.1);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-sm);
+    color: rgb(var(--color-text-muted));
+    gap: var(--spacing-md);
+    
+    @media (max-width: 767px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+    }
+    
+    code {
+      background-color: rgba(var(--color-primary), 0.1);
+      color: rgb(var(--color-primary));
+      padding: 0.2em 0.4em;
+      border-radius: var(--border-radius-sm);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+    }
+  }
+}
+
+// ========================================
+// GRID DEMO - Démonstration de grille
+// ========================================
+
+.grid-demo-item {
+  background-color: rgba(var(--color-primary), 0.1);
+  border: 2px dashed rgba(var(--color-primary), 0.3);
+  padding: var(--spacing-lg);
+  text-align: center;
+  border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-medium);
+  color: rgb(var(--color-primary));
+  transition: var(--transition-all);
+  
+  &:hover {
+    background-color: rgba(var(--color-primary), 0.2);
+    transform: scale(1.02);
+  }
+  
+  @media (max-width: 767px) {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+}
+
+// ========================================
+// UTILITY SHOWCASE - Vitrine utilitaires
+// ========================================
+
+.utility-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  
+  > * {
+    padding: var(--spacing-sm);
+    background-color: rgba(var(--color-border), 0.1);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid rgba(var(--color-border), 0.3);
+    font-size: var(--font-size-sm);
+  }
+}
+
+// ========================================
+// RESPONSIVE GUIDE
+// ========================================
+
+@media (max-width: 1023px) {
+  .guide-sidebar {
+    transform: translateX(-100%);
+    
+    &--open {
+      transform: translateX(0);
+    }
+  }
+  
+  .guide-main {
+    margin-left: 0;
+  }
+  
+  .component-showcase {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .color-palette {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .color-palette {
+    grid-template-columns: 1fr;
+  }
+  
+  .typography-sample__info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+// ========================================
+// GUIDE ANIMATIONS
+// ========================================
+
+// Animation d'entrée pour les sections
+@keyframes guideSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.guide-section {
+  animation: guideSlideIn 0.6s ease-out;
+}
+
+// Animation pour les exemples de code
+@keyframes codeHighlight {
+  0% { background-color: rgba(var(--color-primary), 0.2); }
+  100% { background-color: transparent; }
+}
+
+.guide-code--highlight {
+  animation: codeHighlight 1s ease-out;
+}
+
+// ========================================
+// GUIDE DARK MODE
+// ========================================
+
+[data-theme="dark"] {
+  .guide-sidebar {
+    background-color: rgba(var(--color-background), 0.95);
+    backdrop-filter: blur(10px);
+  }
+  
+  .guide-demo {
+    background-color: rgba(var(--color-surface), 0.8);
+    border-color: rgba(var(--color-border), 0.6);
+  }
+  
+  .color-sample {
+    border-color: rgba(var(--color-border), 0.6);
+  }
+  
+  .grid-demo-item {
+    background-color: rgba(var(--color-primary), 0.15);
+    border-color: rgba(var(--color-primary), 0.4);
+  }
+}
+
+// ========================================
+// GUIDE UTILITIES
+// ========================================
+
+// Classes utilitaires spécifiques au guide
+.guide-hide-mobile {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.guide-show-mobile {
+  display: none;
+  
+  @media (max-width: 767px) {
+    display: block !important;
+  }
+}
+
+.guide-text-mono {
+  font-family: var(--font-mono) !important;
+  font-size: var(--font-size-sm);
+}
+
+.guide-highlight {
+  background-color: rgba(var(--color-primary), 0.1);
+  color: rgb(var(--color-primary));
+  padding: 0.1em 0.3em;
+  border-radius: var(--border-radius-sm);
+  font-weight: var(--font-weight-medium);
+}

@@ -1,0 +1,66 @@
+// ========================================
+// ACCORDION COMPONENT
+// ========================================
+
+// src/scss/components/_accordeon.scss
+.accordion {
+  border: var(--border-width) solid rgb(var(--color-border));
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  
+  &__item {
+    border-bottom: var(--border-width) solid rgb(var(--color-border));
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  &__header {
+    width: 100%;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: rgb(var(--color-text-primary));
+    background-color: rgb(var(--color-surface));
+    cursor: pointer;
+    transition: var(--transition-colors);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    &:hover {
+      background-color: rgba(var(--color-primary), 0.05);
+    }
+    
+    &:focus {
+      outline: 2px solid rgba(var(--color-primary), 0.5);
+      outline-offset: -2px;
+    }
+  }
+  
+  &__icon {
+    transition: transform var(--transition-normal);
+  }
+  
+  &__content {
+    padding: 0 var(--spacing-xl) var(--spacing-xl);
+    background-color: rgb(var(--color-background));
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+  }
+  
+  &__item--open {
+    .accordion__icon {
+      transform: rotate(180deg);
+    }
+    
+    .accordion__content {
+      max-height: 1000px; // Ajuster selon le contenu
+    }
+  }

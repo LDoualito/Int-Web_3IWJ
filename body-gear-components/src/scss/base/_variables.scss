@@ -1,0 +1,203 @@
+// ============================================================================
+// VARIABLES CSS - BODY GEAR COMPONENTS
+// Musculation Old School Authentique 💪
+// ============================================================================
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  // ========================================
+  // COULEURS BODY GEAR - Old School Style
+  // ========================================
+  
+  // Couleurs principales - Intense et authentique
+  --color-primary: 220, 20, 60;        // Rouge crimson #DC143C - Puissance
+  --color-secondary: 26, 26, 26;       // Noir profond #1A1A1A - Sérieux
+  --color-success: 16, 185, 129;       // Vert émeraude #10B981 - Progression
+  --color-warning: 245, 158, 11;       // Orange vif #F59E0B - Effort
+  --color-error: 239, 68, 68;          // Rouge alerte #EF4444 - Danger
+  --color-info: 59, 130, 246;          // Bleu #3B82F6 - Information
+  
+  // Couleurs neutres adaptatives (Light/Dark)
+  --color-background: 255, 255, 255;     // Blanc
+  --color-surface: 249, 250, 251;        // Gris très clair
+  --color-text-primary: 17, 24, 39;      // Noir texte
+  --color-text-secondary: 75, 85, 99;    // Gris foncé
+  --color-text-muted: 156, 163, 175;     // Gris moyen
+  --color-border: 229, 231, 235;         // Gris bordure
+  --color-border-hover: 209, 213, 219;   // Gris bordure hover
+  
+  // Couleurs avec opacité pour effets
+  --color-overlay: 0, 0, 0;              // Noir pour overlays
+  --color-white: 255, 255, 255;          // Blanc pur
+  --color-black: 0, 0, 0;                // Noir pur
+  
+  // ========================================
+  // ESPACEMENTS - Système cohérent en REM
+  // ========================================
+  
+  --spacing-xs: 0.25rem;     // 4px
+  --spacing-sm: 0.5rem;      // 8px
+  --spacing-md: 0.75rem;     // 12px
+  --spacing-lg: 1rem;        // 16px
+  --spacing-xl: 1.25rem;     // 20px
+  --spacing-2xl: 1.5rem;     // 24px
+  --spacing-3xl: 2rem;       // 32px
+  --spacing-4xl: 2.5rem;     // 40px
+  --spacing-5xl: 3rem;       // 48px
+  --spacing-6xl: 4rem;       // 64px
+  --spacing-7xl: 5rem;       // 80px
+  --spacing-8xl: 6rem;       // 96px
+  
+  // ========================================
+  // TYPOGRAPHIE - Old School Impact
+  // ========================================
+  
+  // Familles de polices
+  --font-heading: 'Oswald', 'Arial Black', sans-serif;  // Impact, force
+  --font-body: 'Roboto', 'Arial', sans-serif;           // Lisibilité
+  --font-mono: 'Monaco', 'Consolas', monospace;         // Code
+  
+  // Tailles de police - Échelle harmonieuse
+  --font-size-xs: 0.75rem;      // 12px
+  --font-size-sm: 0.875rem;     // 14px
+  --font-size-base: 1rem;       // 16px (base)
+  --font-size-lg: 1.125rem;     // 18px
+  --font-size-xl: 1.25rem;      // 20px
+  --font-size-2xl: 1.5rem;      // 24px
+  --font-size-3xl: 1.875rem;    // 30px
+  --font-size-4xl: 2.25rem;     // 36px
+  --font-size-5xl: 3rem;        // 48px
+  --font-size-6xl: 3.75rem;     // 60px
+  
+  // Poids de police
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  // Hauteurs de ligne
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  // ========================================
+  // BORDURES ET RAYONS
+  // ========================================
+  
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  --border-width-thicker: 3px;
+  
+  --border-radius-sm: 0.25rem;    // 4px
+  --border-radius-md: 0.375rem;   // 6px
+  --border-radius-lg: 0.5rem;     // 8px
+  --border-radius-xl: 0.75rem;    // 12px
+  --border-radius-2xl: 1rem;      // 16px
+  --border-radius-full: 9999px;   // Cercle parfait
+  
+  // ========================================
+  // OMBRES - Profondeur et impact
+  // ========================================
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  
+  // Ombres colorées Body Gear
+  --shadow-primary: 0 4px 14px 0 rgba(220, 20, 60, 0.25);
+  --shadow-success: 0 4px 14px 0 rgba(16, 185, 129, 0.25);
+  --shadow-warning: 0 4px 14px 0 rgba(245, 158, 11, 0.25);
+  --shadow-error: 0 4px 14px 0 rgba(239, 68, 68, 0.25);
+  
+  // ========================================
+  // TRANSITIONS ET ANIMATIONS
+  // ========================================
+  
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+  
+  --transition-all: all var(--transition-normal);
+  --transition-colors: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  --transition-transform: transform var(--transition-normal);
+  --transition-opacity: opacity var(--transition-fast);
+  
+  // ========================================
+  // Z-INDEX - Couches d'affichage
+  // ========================================
+  
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  --z-index-toast: 1080;
+  
+  // ========================================
+  // BREAKPOINTS - Mobile First
+  // ========================================
+  
+  --breakpoint-sm: 640px;      // Smartphone large
+  --breakpoint-md: 768px;      // Tablette
+  --breakpoint-lg: 1024px;     // Desktop
+  --breakpoint-xl: 1280px;     // Desktop large
+  --breakpoint-2xl: 1536px;    // Desktop très large
+  
+  // ========================================
+  // CONTENEURS ET GRILLE
+  // ========================================
+  
+  --container-max-width: 1200px;
+  --container-padding: var(--spacing-lg);
+  
+  --grid-gap: var(--spacing-lg);
+  --grid-gap-sm: var(--spacing-md);
+  --grid-gap-lg: var(--spacing-2xl);
+  
+  // ========================================
+  // COMPOSANTS SPÉCIFIQUES
+  // ========================================
+  
+  // Header
+  --header-height: 4rem;        // 64px
+  --header-height-mobile: 3.5rem; // 56px
+  
+  // Sidebar
+  --sidebar-width: 16rem;       // 256px
+  --sidebar-width-collapsed: 4rem; // 64px
+  
+  // Formulaires
+  --form-input-height: 2.75rem; // 44px - Zone de touch mobile
+  --form-input-padding: var(--spacing-md) var(--spacing-lg);
+  
+  // Boutons
+  --button-height-sm: 2rem;     // 32px
+  --button-height-md: 2.5rem;   // 40px
+  --button-height-lg: 3rem;     // 48px
+  --button-height-xl: 3.5rem;   // 56px
+  
+  // Cards
+  --card-padding: var(--spacing-xl);
+  --card-padding-sm: var(--spacing-lg);
+}
+
+// ========================================
+// MIXINS UTILITAIRES
+// ========================================
+
+// Fonction pour utiliser les couleurs RGB
+@function rgb-color($color) {
+  @return rgb(var(#{$color}));
+}
+
+@function rgba-color($color, $opacity) {
+  @return rgba(var(#{$color}), #{$opacity});
+}

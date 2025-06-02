@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Guide - Body Gear | Bibliothèque de Composants</title>
+    <meta name="description" content="Documentation complète des composants Body Gear avec méthodologie BEM, exemples de code et bonnes pratiques.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/scss/main.scss">
+    
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <!-- Design Guide Layout -->
+    <div class="wrapper wrapper--with-sidebar">
+        <!-- Guide Sidebar -->
+        <aside class="wrapper__sidebar guide-sidebar">
+            <div class="guide-sidebar__header">
+                <a href="landing-page.html" class="logo guide-sidebar__logo">
+                    <strong>BG</strong>
+                    <span class="guide-sidebar__logo-text">Guide</span>
+                </a>
+                
+                <!-- Theme Toggle Toolbar -->
+                <div class="guide-sidebar__toolbar">
+                    <!-- Theme toggle sera ajouté automatiquement par JS -->
+                    <button class="btn btn--ghost btn--small guide-sidebar__btn" id="toggle-code" title="Afficher/Masquer le code">
+                        📝
+                    </button>
+                </div>
+            </div>
+            
+            <nav class="guide-nav" aria-label="Navigation du design guide">
+                <div class="guide-nav__section">
+                    <h3 class="guide-nav__title">🎨 Fondations</h3>
+                    <ul class="guide-nav__list">
+                        <li class="guide-nav__item">
+                            <a href="#introduction" class="guide-nav__link guide-nav__link--active">Introduction</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#colors" class="guide-nav__link">Couleurs</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#typography" class="guide-nav__link">Typographie</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#spacing" class="guide-nav__link">Espacements</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#themes" class="guide-nav__link">Thèmes</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="guide-nav__section">
+                    <h3 class="guide-nav__title">🧱 Composants</h3>
+                    <ul class="guide-nav__list">
+                        <li class="guide-nav__item">
+                            <a href="#buttons" class="guide-nav__link">Boutons</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#forms" class="guide-nav__link">Formulaires</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#cards" class="guide-nav__link">Cartes</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#navigation" class="guide-nav__link">Navigation</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#alerts" class="guide-nav__link">Alertes</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#containers" class="guide-nav__link">Containers</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="guide-nav__section">
+                    <h3 class="guide-nav__title">📐 Layouts</h3>
+                    <ul class="guide-nav__list">
+                        <li class="guide-nav__item">
+                            <a href="#grid" class="guide-nav__link">Grilles</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#utilities" class="guide-nav__link">Utilitaires</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="#responsive" class="guide-nav__link">Responsive</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="guide-nav__section">
+                    <h3 class="guide-nav__title">🔗 Liens</h3>
+                    <ul class="guide-nav__list">
+                        <li class="guide-nav__item">
+                            <a href="landing-page.html" class="guide-nav__link guide-nav__link--external">🏠 Accueil</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="index.html" class="guide-nav__link guide-nav__link--external">📝 Inscription</a>
+                        </li>
+                        <li class="guide-nav__item">
+                            <a href="back-office.html" class="guide-nav__link guide-nav__link--external">📊 Admin</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="wrapper__main guide-main">
+            <!-- Guide Header -->
+            <header class="guide-header">
+                <div class="guide-header__content">
+                    <h1 class="guide-header__title">Body Gear Design System</h1>
+                    <p class="guide-header__subtitle">
+                        Bibliothèque de composants pour la musculation authentique 💪
+                    </p>
+                    
+                    <div class="guide-header__meta">
+                        <span class="badge badge--primary">Version 1.0</span>
+                        <span class="badge badge--success">Méthodologie BEM</span>
+                        <span class="badge badge--warning">Mobile First</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Guide Content -->
+            <div class="guide-content">
+                
+                <!-- Introduction -->
+                <section class="guide-section" id="introduction">
+                    <div class="guide-section__header">
+                        <h2 class="guide-section__title">🎯 Introduction</h2>
+                        <p class="guide-section__description">
+                            Body Gear Design System est une bibliothèque de composants web conçue 
+                            pour créer des interfaces authentiques dans l'univers de la musculation old school.
+                        </p>
+                    </div>
+                    
+                    <div class="guide-demo">
+                        <div class="grid grid--2">
+                            <div class="card card--elevated">
+                                <div class="card__body">
+                                    <h3 class="card__title">🏋️ Philosophie</h3>
+                                    <p class="card__text">
+                                        Authenticité, performance et simplicité. Chaque composant 
+                                        reflète les valeurs Body Gear : pas de fioritures, que de l'efficacité.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="card card--elevated">
+                                <div class="card__body">
+                                    <h3 class="card__title">⚡ Technologies</h3>
+                                    <p class="card__text">
+                                        HTML5 sémantique, CSS3 avec Sass, JavaScript ES6+, 
+                                        méthodologie BEM stricte et approche mobile-first.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-code" style="display: none;">
+                        <pre class="code-block"><code>&lt;div class="card card--elevated"&gt;
+  &lt;div class="card__body"&gt;
+    &lt;h3 class="card__title"&gt;Titre de la carte&lt;/h3&gt;
+    &lt;p class="card__text"&gt;Contenu de la carte&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Colors -->
+                <section class="guide-section" id="colors">
+                    <div class="guide-section__header">
+                        <h2 class="guide-section__title">🎨 Palette de couleurs</h2>
+                        <p class="guide-section__description">
+                            Couleurs inspirées de l'univers Body Gear : puissantes, contrastées et motivantes.
+                        </p>
+                    </div>
+                    
+                    <div class="guide-demo">
+                        <h3 class="guide-subsection__title">Couleurs principales</h3>
+                        <div class="color-palette">
+                            <div class="color-sample color-sample--primary">
+                                <div class="color-sample__preview"></div>
+                                <div class="color-sample__info">
+                                    <span class="color-sample__name">Primary</span>
+                                    <span class="color-sample__value">#DC143C</span>
+                                    <span class="color-sample__usage">Actions principales, liens</span>
+                                </div>
+                            </div>
+                            
+                            <div class="color-sample color-sample--secondary">
+                                <div class="color-sample__preview"></div>
+                                <div class="color-sample__info">
+                                    <span class="color-sample__name">Secondary</span>
+                                    <span class="color-sample__value">#1A1A1A</span>
+                                    <span class="color-sample__usage">Headers, textes importants</span>
+                                </div>
+                            </div>
+                            
+                            <div class="color-sample color-sample--success">
+                                <div class="color-sample__preview"></div>
+                                <div class="color-sample__info">
+                                    <span class="color-sample__name">Success</span>
+                                    <span class="color-sample__value">#10B981</span>
+                                    <span class="color-sample__usage">Succès, validation</span>
+                                </div>
+                            </div>
+                            
+                            <div class="color-sample color-sample--warning">
+                                <div class="color-sample__preview"></div>
+                                <div class="color-sample__info">
+                                    <span class="color-sample__name">Warning</span>
+                                    <span class="color-sample__value">#F59E0B</span>
+                                    <span class="color-sample__usage">Avertissements, attention</span>
+                                </div>
+                            </div>
+                            
+                            <div class="color-sample color-sample--error">
+                                <div class="color-sample__preview"></div>
+                                <div class="color-sample__info">
+                                    <span class="color-sample__name">Error</span>
+                                    <span class="color-sample__value">#EF4444</span>
+                                    <span class="color-sample__usage">Erreurs, suppression</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-code" style="display: none;">
+                        <pre class="code-block"><code>/* Variables CSS Body Gear */
+:root {
+  --color-primary: 220, 20, 60;    /* Rouge crimson */
+  --color-secondary: 26, 26, 26;   /* Noir profond */
+  --color-success: 16, 185, 129;   /* Vert émeraude */
+  --color-warning: 245, 158, 11;   /* Orange vif */
+  --color-error: 239, 68, 68;      /* Rouge alerte */
+}
+
+/* Utilisation */
+.btn--primary {
+  background-color: rgb(var(--color-primary));
+}</code></pre>
+                    </div>
+                </section>
+
+                <!-- Typography -->
+                <section class="guide-section" id="typography">
+                    <div class="guide-section__header">
+                        <h2 class="guide-section__title">✍️ Typographie</h2>
+                        <p class="guide-section__description">
+                            Police Oswald pour les titres (impact, force) et Roboto pour le texte (lisibilité).
+                        </p>
+                    </div>
+                    
+                    <div class="guide-demo">
+                        <div class="typography-scale">
+                            <div class="typography-sample">
+                                <h1 class="typography-sample__text">Forge ton corps, forge ton mental</h1>
+                                <div class="typography-sample__info">
+                                    <span>H1 - Oswald Bold - 3rem (48px)</span>
+                                    <code>.guide-section__title</code>
+                                </div>
+                            </div>
+                            
+                            <div class="typography-sample">
+                                <h2 class="typography-sample__text">Musculation Old School</h2>
+                                <div class="typography-sample__info">
+                                    <span>H2 - Oswald SemiBold - 2.25rem (36px)</span>
+                                    <code>.card__title</code>
+                                </div>
+                            </div>
+                            
+                            <div class="typography-sample">
+                                <h3 class="typography-sample__text">Programmes d'entraînement</h3>
+                                <div class="typography-sample__info">
+                                    <span>H3 - Oswald Medium - 1.875rem (30px)</span>
+                                    <code>.section__title</code>
+                                </div>
+                            </div>
+                            
+                            <div class="typography-sample">
+                                <p class="typography-sample__text">
+                                    Ce texte utilise la police Roboto pour une lisibilité optimale 
+                                    sur tous les supports. Il est conçu pour être lu facilement 
+                                    même lors d'entraînements intenses.
+                                </p>
+                                <div class="typography-sample__info">
+                                    <span>Body - Roboto Regular - 1rem (16px)</span>
+                                    <code>.card__text, p</code>
+                                </div>
+                            </div>
+                            
+                            <div class="typography-sample">
+                                <small class="typography-sample__text">
+                                    Texte secondaire pour les détails et informations complémentaires.
+                                </small>
+                                <div class="typography-sample__info">
+                                    <span>Small - Roboto Regular - 0.875rem (14px)</span>
+                                    <code>.form__help, .card__meta</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-code" style="display: none;">
+                        <pre class="code-block"><code>/* Familles de polices */
+--font-heading: 'Oswald', 'Arial Black', sans-serif;
+--font-body: 'Roboto', 'Arial', sans-serif;
+
+/* Tailles */
+--font-size-xs: 0.75rem;    /* 12px */
+--font-size-sm: 0.875rem;   /* 14px */
+--font-size-base: 1rem;     /* 16px */
+--font-size-lg: 1.125rem;   /* 18px */
+--font-size-xl: 1.25rem;    /* 20px */</code></pre>
+                    </div>
+                </section>
+
+                <!-- Buttons -->
+                <section class="guide-section" id="buttons">
+                    <div class="guide-section__header">
+                        <h2 class="guide-section__title">🔘 Boutons</h2>
+                        <p class="guide-section__description">
+                            Système de boutons complet avec différentes variantes, tailles et états.
+                        </p>
+                    </div>
+                    
+                    <div class="guide-demo">
+                        <h3 class="guide-subsection__title">Variantes</h3>
+                        <div class="component-showcase">
+                            <button class="btn btn--primary">Primary</button>
+                            <button class="btn btn--secondary">Secondary</button>
+                            <button class="btn btn--success">Success</button>
+                            <button class="btn btn--warning">Warning</button>
+                            <button class="btn btn--error">Error</button>
+                            <button class="btn btn--outline">Outline</button>
+                            <button class="btn btn--ghost">Ghost</button>
+                        </div>
+                        
+                        <h3 class="guide-subsection__title">Tailles</h3>
+                        <div class="component-showcase">
+                            <button class="btn btn--primary btn--small">Small</button>
+                            <button class="btn btn--primary">Normal</button>
+                            <button class="btn btn--primary btn--large">Large</button>
+                            <button class="btn btn--primary btn--xl">Extra Large</button>
+                        </div>
+                        
+                        <h3 class="guide-subsection__title">États</h3>
+                        <div class="component-showcase">
+                            <button class="btn btn--primary">Normal</button>
+                            <button class="btn btn--primary btn--loading">Loading</button>
+                            <button class="btn btn--primary" disabled>Disabled</button>
+                            <button class="btn btn--primary btn--block">Block (100%)</button>
+                        </div>
+                        
+                        <h3 class="guide-subsection__title">Avec icônes</h3>
+                        <div class="component-showcase">
+                            <button class="btn btn--primary">
+                                <span class="btn__icon">🏋️</span>
+                                <span class="btn__text">S'entraîner</span>
+                            </button>
+                            <button class="btn btn--success">
+                                <span class="btn__text">Valider</span>
+                                <span class="btn__icon">✅</span>
+                            </button>
+                            <button class="btn btn--outline btn--icon-only" title="Menu">
+                                ⚙️
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-code" style="display: none;">
+                        <pre class="code-block"><code>&lt;!-- Bouton de base --&gt;
+&lt;button class="btn btn--primary"&gt;Rejoindre Body Gear&lt;/button&gt;
+
+&lt;!-- Bouton avec icône --&gt;
+&lt;button class="btn btn--primary btn--large"&gt;
+  &lt;span class="btn__icon"&gt;💪&lt;/span&gt;
+  &lt;span class="btn__text"&gt;S'entraîner&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- États spéciaux --&gt;
+&lt;button class="btn btn--primary btn--loading"&gt;Chargement...&lt;/button&gt;
+&lt;button class="btn btn--primary" disabled&gt;Indisponible&lt;/button&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Forms -->
+                <section class="guide-section" id="forms">
+                    <div class="guide-section__header">
+                        <h2 class="guide-section__title">📝 Formulaires</h2>
+                        <p class="guide-section__description">
+                            Composants de formulaires avec validation, états visuels et accessibilité.
+                        </p>
+                    </div>
+                    
+                    <div class="guide-demo">
+                        <h3 class="guide-subsection__title">Champs de base</h3>
+                        <div class="form form--large">
+                            <div class="form__group">
+                                <label for="demo-input" class="form__label form__label--required">Nom complet</label>
+                                <input type="text" id="demo-input" class="form__input" placeholder="Votre nom complet">
+                                <span class="form__help">Entrez votre nom et prénom</span>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="demo-email" class="form__label">Email</label>
+                                <input type="email" id="demo-email" class="form__input form__input--valid" value="john@bodygear.fr">
+                                <span class="form__success">Email valide ✓</span>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="demo-error" class="form__label">Téléphone</label>
+                                <input type="tel" id="demo-error" class="form__input form__input--error" value="123">
+                                <span class="form__error">Format de téléphone invalide</span>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="demo-select" class="form__label">Objectif</label>
+                                <select id="demo-select" class="form__select">
+                                    <option>Choisir un objectif</option>
+                                    <option>Prise de masse</option>
+                                    <option>Force pure</option>
+                                    <option>Cardio</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label for="demo-textarea" class="form__label">Commentaires</label>
+                                <textarea id="demo-textarea" class="form__textarea" placeholder="Parlez-nous de vos objectifs..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <h3 class="guide-subsection__title">Choix multiples</h3>
+                        <div class="form">
+                            <div class="form__group">
+                                <div class="form__choice-group form__choice-group--horizontal">
+                                    <div class="form__choice">
+                                        <input type="radio" id="level1" name="level" class="form__radio">
+                                        <label for="level1" class="form__choice-label">Débutant</label>
+                                    </div>
+                                    <div class="form__choice">
+                                        <input type="radio" id="level2" name="level" class="form__radio" checked>
+                                        <label for="level2" class="form__choice-label">Intermédiaire</label>
+                                    </div>
+                                    <div class="form__choice">
+                                        <input type="radio" id="level3" name="level" class="form__radio">
+                                        <label for="level3" class="form__choice-label">Avancé</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form__group">
+                                <div class="form__choice">
+                                    <input type="checkbox" id="newsletter" class="form__checkbox" checked>
+                                    <label for="newsletter" class="form__choice-label">
+                                        S'abonner à la newsletter Body Gear
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-code" style="display: none;">
+                        <pre class="code-block"><code>&lt;div class="form__group"&gt;
+  &lt;label for="name" class="form__label form__label--required"&gt;Nom&lt;/label&gt;
+  &lt;input type="text" id="name" class="form__input" required&gt;
+  &lt;span class="form__help"&gt;Texte d'aide&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- États visuels --&gt;
+&lt;input class="form__input form__input--valid"&gt;
+&lt;input class="form__input form__input--error"&gt;
+&lt;input class="form__input form__input--warning"&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Cards -->
+                <section class="guide-section" id="cards">
+                    <div class="guide-section__header">
+                        <h2 class="guide-section__title">🃏 Cartes</h2>
+                        <p class="guide-section__description">
+                            Composants de cartes flexibles pour afficher du contenu structuré.
+                        </p>
+                    </div>
+                    
+                    <div class="guide-demo">
+                        <h3 class="guide-subsection__title">Cartes de base</h3>
+                        <div class="grid grid--3">
+                            <div class="card">
+                                <div class="card__header">
+                                    <h3 class="card__title">Carte Simple</h3>
+                                </div>
+                                <div class="card__body">
+                                    <p class="card__text">Contenu de base avec header et body.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="card card--elevated">
+                                <div class="card__body">
+                                    <h3 class="card__title">Carte Élevée</h3>
+                                    <p class="card__text">Avec ombre et effet hover.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="card card--primary">
+                                <div class="card__body">
+                                    <h3 class="card__title">Carte Colorée</h3>
+                                    <p class="card__text">Avec thème de couleur.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="guide-subsection__title">Carte Programme (spécialisée)</h3>
+                        <div class="card card--program card--elevated" style="max-width: 400px;">
+                            <div class="card__header">
+                                <h3 class="card__title">🏋️ Force Brute</h3>
+                                <div class="card__difficulty">
+                                    <span>Niveau :</span>
+                                    <div class="card__difficulty-level">
+                                        <span class="card__difficulty-dot card__difficulty-dot--active"></span>
+                                        <span class="card__difficulty-dot card__difficulty-dot--active"></span>
+                                        <span class="card__difficulty-dot card__difficulty-dot--active"></span>
+                                        <span class="card__difficulty-dot"></span>
+                                        <span class="card__difficulty-dot"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card__body">
+                                <p class="card__text">Programme pour développer une force brute impressionnante.</p>
+                                
+                                <div class="card__stats">
+                                    <div class="card__stat">
+                                        <span class="card__stat-value">5</span>
+                                        <span class="card__stat-label">Séances/sem</span>
+                                    </div>
+                                    <div class="card__stat">
+                                        <span class="card__stat-value">90</span>
+                                        <span class="card__stat-label">Min/séance</span>
+                                    </div>
+                                    <div class="card__stat">
+                                        <span class="card__stat-value">12</span>
+                                        <span class="card__stat-label">Semaines</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="card__equipment">
+                                    <span class="card__equipment-tag">Barres</span>
+                                    <span class="card__equipment-tag">Disques</span>
+                                    <span class="card__equipment-tag">Rack</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card__footer">
+                                <button class="btn btn--primary btn--block">Commencer</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-code" style="display: none;">
+                        <pre class="code-block"><code>&lt;div class="card card--elevated"&gt;
+  &lt;div class="card__header"&gt;
+    &lt;h3 class="card__title"&gt;Titre de la carte&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="card__body"&gt;
+    &lt;p class="card__text"&gt;Contenu de la carte...&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="card__footer"&gt;
+    &lt;button class="btn btn--primary"&gt;Action&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Alerts -->
+                <section class="guide-section" id="alerts">
+                    <div class="guide-section__header">
+                        <h2 class="guide-section__title">🚨 Alertes</h2>
+                        <p class="guide-section__description">
+                            Système d'alertes pour communiquer avec les utilisateurs.
+                        </p>
+                    </div>
+                    
+                    <div class="guide-demo">
+                        <div class="alert alert--success">
+                            <div class="alert__icon">✅</div>
+                            <div class="alert__content">
+                                <h4 class="alert__title">Inscription réussie !</h4>
+                                <p class="alert__message">Bienvenue dans la famille Body Gear. Préparez-vous à forger votre corps.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert--warning">
+                            <div class="alert__icon">⚠️</div>
+                            <div class="alert__content">
+                                <h4 class="alert__title">Attention</h4>
+                                <p class="alert__message">Votre abonnement expire dans 3 jours. Pensez à le renouveler.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert--error">
+                            <div class="alert__icon">❌</div>
+                            <div class="alert__content">
+                                <h4 class="alert__title">Erreur de connexion</h4>
+                                <p class="alert__message">Impossible de se connecter au serveur. Veuillez réessayer.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert--info">
+                            <div class="alert__icon">ℹ️</div>
+                            <div class="alert__content">
+                                <h4 class="alert__title">Information</h4>
+                                <p class="alert__message">Maintenance programmée ce dimanche de 2h à 4h.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-code" style="display: none;">
+                        <pre class="code-block"><code>&lt;div class="alert alert--success"&gt;
+  &lt;div class="alert__icon"&gt;✅&lt;/div&gt;
+  &lt;div class="alert__content"&gt;
+    &lt;h4 class="alert__title"&gt;Succès !&lt;/h4&gt;
+    &lt;p class="alert__message"&gt;Votre action a été réalisée.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Grid System -->
+                <section class="guide-section" id="grid">
+                    <div class="guide-section__header">
+                        <h2 class="guide-section__title">📐 Système de grille</h2>
+                        <p class="guide-section__description">
+                            Grille responsive flexible basée sur CSS Grid avec support mobile-first.
+                        </p>
+                    </div>
+                    
+                    <div class="guide-demo">
+                        <h3 class="guide-subsection__title">Grilles fixes</h3>
+                        
+                        <div class="grid grid--2">
+                            <div class="grid-demo-item">Grid 2 colonnes</div>
+                            <div class="grid-demo-item">Colonne 2</div>
+                        </div>
+                        
+                        <div class="grid grid--3">
+                            <div class="grid-demo-item">Grid 3 colonnes</div>
+                            <div class="grid-demo-item">Colonne 2</div>
+                            <div class="grid-demo-item">Colonne 3</div>
+                        </div>
+                        
+                        <div class="grid grid--4">
+                            <div class="grid-demo-item">Grid 4 colonnes</div>
+                            <div class="grid-demo-item">Col 2</div>
+                            <div class="grid-demo-item">Col 3</div>
+                            <div class="grid-demo-item">Col 4</div>
+                        </div>
+                        
+                        <h3 class="guide-subsection__title">Grille auto-fit</h3>
+                        
+                        <div class="grid grid--auto-fit">
+                            <div class="grid-demo-item">Auto 1</div>
+                            <div class="grid-demo-item">Auto 2</div>
+                            <div class="grid-demo-item">Auto 3</div>
+                            <div class="grid-demo-item">Auto 4</div>
+                            <div class="grid-demo-item">Auto 5</div>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-code" style="display: none;">
+                        <pre class="code-block"><code>&lt;!-- Grilles fixes --&gt;
+&lt;div class="grid grid--2"&gt;...&lt;/div&gt;
+&lt;div class="grid grid--3"&gt;...&lt;/div&gt;
+&lt;div class="grid grid--4"&gt;...&lt;/div&gt;
+
+&lt;!-- Grille responsive --&gt;
+&lt;div class="grid grid--auto-fit"&gt;
+  &lt;div&gt;Élément 1&lt;/div&gt;
+  &lt;div&gt;Élément 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Utilities -->
+                <section class="guide-section" id="utilities">
+                    <div class="guide-section__header">
+                        <h2 class="guide-section__title">🛠️ Classes utilitaires</h2>
+                        <p class="guide-section__description">
+                            Classes d'aide pour les ajustements rapides et les cas spéciaux.
+                        </p>
+                    </div>
+                    
+                    <div class="guide-demo">
+                        <h3 class="guide-subsection__title">Texte</h3>
+                        <div class="utility-showcase">
+                            <p class="text-left">Texte aligné à gauche</p>
+                            <p class="text-center">Texte centré</p>
+                            <p class="text-right">Texte aligné à droite</p>
+                            <p class="text-primary">Texte couleur primaire</p>
+                            <p class="text-muted">Texte atténué</p>
+                            <p class="font-bold">Texte en gras</p>
+                        </div>
+                        
+                        <h3 class="guide-subsection__title">Affichage</h3>
+                        <div class="utility-showcase">
+                            <div class="flex flex--center">
+                                <span class="badge badge--primary">Flex Center</span>
+                            </div>
+                            <div class="flex flex--between">
+                                <span>Gauche</span>
+                                <span>Droite</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="guide-subsection__title">Espacement</h3>
+                        <div class="utility-showcase">
+                            <div class="p-0 bg-surface">Padding 0</div>
+                            <div class="m-auto bg-surface">Margin auto</div>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-code" style="display: none;">
+                        <pre class="code-block"><code>&lt;!-- Classes de texte --&gt;
+&lt;p class="text-center text-primary font-bold"&gt;Texte stylé&lt;/p&gt;
+
+&lt;!-- Classes de layout --&gt;
+&lt;div class="flex flex--center"&gt;Contenu centré&lt;/div&gt;
+&lt;div class="flex flex--between"&gt;
+  &lt;span&gt;Gauche&lt;/span&gt;
+  &lt;span&gt;Droite&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Navigation to pages -->
+                <section class="guide-section">
+                    <div class="guide-section__header">
+                        <h2 class="guide-section__title">🔗 Pages du projet</h2>
+                        <p class="guide-section__description">
+                            Découvrez les pages créées avec ces composants.
+                        </p>
+                    </div>
+                    
+                    <div class="guide-demo">
+                        <div class="grid grid--3">
+                            <a href="landing-page.html" class="card card--elevated card--clickable">
+                                <div class="card__body text-center">
+                                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏠</div>
+                                    <h3 class="card__title">Landing Page</h3>
+                                    <p class="card__text">Page d'accueil avec hero, programmes et tarifs</p>
+                                </div>
+                            </a>
+                            
+                            <a href="index.html" class="card card--elevated card--clickable">
+                                <div class="card__body text-center">
+                                    <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
+                                    <h3 class="card__title">Inscription</h3>
+                                    <p class="card__text">Formulaire complet avec validation JavaScript</p>
+                                </div>
+                            </a>
+                            
+                            <a href="back-office.html" class="card card--elevated card--clickable">
+                                <div class="card__body text-center">
+                                    <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                                    <h3 class="card__title">Back Office</h3>
+                                    <p class="card__text">Interface d'administration avec dashboard</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="src/js/main.js"></script>
+    
+    <!-- Design Guide JavaScript -->
+    <script>
+        // Toggle code visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggle-code');
+            if (toggleButton) {
+                toggleButton.addEventListener('click', function() {
+                    const codeBlocks = document.querySelectorAll('.guide-code');
+                    const isVisible = document.querySelector('.guide-code').style.display !== 'none';
+                    
+                    codeBlocks.forEach(block => {
+                        block.style.display = isVisible ? 'none' : 'block';
+                    });
+                    
+                    this.textContent = isVisible ? '👁️' : '📝';
+                    this.title = isVisible ? 'Afficher le code' : 'Masquer le code';
+                });
+            }
+            
+            // Smooth navigation
+            document.querySelectorAll('.guide-nav__link:not(.guide-nav__link--external)').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Remove active class from all links
+                    document.querySelectorAll('.guide-nav__link').forEach(l => l.classList.remove('guide-nav__link--active'));
+                    // Add active class to clicked link
+                    this.classList.add('guide-nav__link--active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
